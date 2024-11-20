@@ -16,54 +16,68 @@ Users will be able to navigate and explore a feed of positive content while also
 
 **Special Considerations:**
 
-* **Content Moderation:** User-generated content will be screened to ensure positivity and respect towards others on the platform at all times, based on community guidelines.
-* **Accessibility:** The app should be usable and accessible for users and have compatibility with screen readers.
+- **Content Moderation:** User-generated content will be screened to ensure positivity and respect towards others on the platform at all times, based on community guidelines.
+- **Accessibility:** The app should be usable and accessible for users and have compatibility with screen readers.
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
-
-**User** **Sign-up** **and Login**
-
-- Users can create accounts or log in with credentials.
-
 **Content Feed**
 
-* Users can view a feed of uplifting stories, quotes, and news, filtered by category.
+- Users can view a feed of uplifting stories, quotes, and news, filtered by category. For instance, showing most recent, most popular, or trendiest content.
 
 **Submit Stories**
 
-* Users can submit, edit and delete their own uplifting stories that may include media, subject to community standards.
+- Users can submit, edit and delete their own uplifting stories that may include media, subject to community standards.
 
 **Moderation**
 
-* Admins check submissions by users for approval before posting.
+- Admins check submissions by users for approval before posting.
 
 **Engagement Features**
 
-* **Users** **are** **able to** interact with submited posts using reaction buttons and share them. Engagement stats are visible.
+- **Users** **are** **able to** interact with submited posts using reaction buttons and share them. Engagement stats are visible.
 
 **User Profile**
 
-* Profiles show submitted content, engagement stats, and personal details.
+- Profiles show submitted content, engagement stats, and personal details.
 
 **Search**
 
-* Users can search for stories, keywords, or other members.
+- Users can search for stories, keywords, or other members.
 
-**Social Sharing**
+**Notifications**
 
-* Posts can be easily shared to social media platforms.
+- Users shall receive push notifications regarding new feed, changes in the status of submitted stories, or interactions-likes/comments.
+
+**Daily/Weekly Inspirational Challenges**
+
+- The app could provide daily/weekly optional challenges that help inspire people to spread positivity and engage more frequently with it.
+
+**Content Bookmarking/Favorites**
+
+- Users should be able to save or "Bookmark" content that inspires them or they might like to come back to later.
 
 **Reporting and Feedback**
 
-Users can report inappropriate content or submit app feedback.
+- Users should be able to report inappropriate content or submit app feedback.
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+- React
+- TypeScript
+- MySQL
+- Express
+- Client libraries: 
+    - react
+    - react-router
+    - axios
+    - Chart.js
+- Server libraries:
+    - knex
+    - express
+    - Socket.io
 
 ### APIs
 
