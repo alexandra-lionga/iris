@@ -43,7 +43,7 @@ Users will be able to navigate and explore a feed of positive content while also
 
 **Search**
 
-- Users can search for stories, keywords, or other members.
+- Users can search for stories, keywords.
 
 **Notifications**
 
@@ -57,6 +57,14 @@ Users will be able to navigate and explore a feed of positive content while also
 
 - Users should be able to save or "Bookmark" content that inspires them or they might like to come back to later.
 
+**Newsletter**
+
+- Users should be able to subscribe to a newsletter to receive content through their e-mails.
+
+**Share Positive Initiatives**
+
+- Users should be able to share and spread awareness of postive initiatives such as charity events, fundraisers, etc.
+
 **Reporting and Feedback**
 
 - Users should be able to report inappropriate content or submit app feedback.
@@ -66,9 +74,10 @@ Users will be able to navigate and explore a feed of positive content while also
 ### Tech Stack
 
 - React
-- TypeScript
+- Sass
 - MySQL
 - Express
+- Nodemailer
 - Client libraries: 
     - react
     - react-router
@@ -81,11 +90,24 @@ Users will be able to navigate and explore a feed of positive content while also
 
 ### APIs
 
-List any external sources of data that will be used in your app.
+- Newsdata.io (positive news feed).
+- ZenQuotes API (daily inspiration).
+- Unsplash API (visual enhancements).
+- Firebase Cloud Messaging (user engagement).
 
 ### Sitemap
 
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
+Welcome: Landing page/intro.
+
+Home: Feed of positive content, options to interact.
+
+Submit Story: Form for submitting stories with media.
+
+Profile: User's personal info, history, and interactions.
+
+Post Details: Single post with likes, comments, shares.
+
+ImpactHub: share positive initiatives page.
 
 ### Mockups
 
@@ -97,14 +119,169 @@ Describe your data and the relationships between the data points. You can show t
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+***Content Feed***
+GET /feed
+
+Description: Fetches the feed of positive content (stories, quotes, and news).
+Parameters:
+category (optional, string)
+sort (optional, string: "recent" or "popular")
+Response:
+json
+```
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "title": "Heartwarming Story",
+      "content": "This is an inspiring story...",
+      "media_url": "https://example.com/image.jpg",
+    }
+  ]
+}
+```
+GET /post/{id}
+
+Description: Fetches detailed information about a specific post.
+Parameters:
+id (path parameter, integer)
+Response:
+json
+```
+{
+  "status": "success",
+  "data": {
+    "id": 1,
+    "title": "Heartwarming Story",
+    "content": "This is the detailed story content...",
+    "media_url": "https://example.com/image.jpg",
+    "likes": 150,
+  }
+}
+```
+
+DELETE /post/{postId}
+Purpose: Allows a user to delete one of their own posts.
+Logic:
+Validate that the requesting user owns the post.
+Delete the post if it exists and belongs to the user.
+Request Example:
+json
+```
+{
+  "userId": 123
+}
+```
+
+**Interactions**
+POST /like/{contentId}
+
+Description: Likes a specific piece of content.
+Parameters:
+contentId (path parameter, integer)
+Response:
+json
+```
+{
+  "status": "success",
+  "message": "Post liked successfully"
+}
+```
+DELETE /like/{contentId}
+Purpose: Allows a user to unlike a post they previously liked.
+Logic:
+Check if the user has liked the post.
+Remove the like record from the database.
+Request Example:
+json
+```
+{
+  "userId": 123
+}
+```
+Response Example:
+Success: 200 OK with a message:
+json
+```
+{
+  "status": "success",
+  "message": "Like removed successfully."
+} 
+```
+***User Profile***
+GET /profile/{userId}
+
+Description: Fetches user profile details.
+Parameters:
+userId (path parameter, integer)
+Response:
+json
+```
+{
+  "status": "success",
+  "data": {
+    "username": "JohnDoe",
+    "profile_picture": "https://example.com/profile.jpg",
+    "posts": [
+      {
+        "id": 1,
+        "title": "Heartwarming Story"
+      }
+    ],
+    "likes": 120
+  }
+}
+```
+***User Stories***
+POST /submit-story
+Description: Allows users to submit a new story.
+Parameters:
+title (string)
+description (string)
+media_url (string, optional)
+Response:
+json
+```
+{
+  "status": "success",
+  "message": "Story submitted successfully and is pending review"
+}
+```
+
+***Endpoints for the Impact Hub***
+For Initiatives:
+GET /impact-hub
+
+Fetches all initiatives with filtering options.
+Parameters: category, location, sort.
+POST /impact-hub/submit
+
+Allows users to submit a new initiative for review.
+Parameters: title, description, media_url, category.
+GET /impact-hub/{initiativeId}
+
+Fetches details about a specific initiative.
+POST /impact-hub/{initiativeId}/like
+
+Likes an initiative.
+POST /impact-hub/{initiativeId}/comment
+
+Adds a comment to an initiative.
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date.
+Day 1-2: Set up React/Express.
+Day 3-4: Implement user profile page and content feed.
+Day 5-6: Add story submission, moderation.
+Day 7-8: Implement newsletter, notifications, and search.
+Day 9: Test features, bug fixing, and UI refinements.
+Day 10: Final testing and deployment.
 
 ---
 
 ## Future Implementations
-
-Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date.
+- Gamification (badges, rewards).
+- Multi-language support.
+- Offline reading.
+- AI-powered content recommendations.
