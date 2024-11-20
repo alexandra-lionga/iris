@@ -111,16 +111,32 @@ ImpactHub: share positive initiatives page.
 
 ### Mockups
 
-Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
+***Welcome Page***
+![welcome page](<Welcome Page.png>)
+
+***Main Content Page**
+![Main Content](<Main Page.png>)
+
+***Category Details***
+![category details](<Category Details Page.png>)
+
+***Submit Story***
+![Submit Story](<Submit Story.png>)
+
+***User Account/Profile***
+![User Account/Profile](<User Account.png>)
+
+***Impact Hub**
+![Impact Hub Page](<Impact Hub Page.png>)
+
 
 ### Data
-
-Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out.
-
+![sql ](sql_diagram.png)
 ### Endpoints
 
 ***Content Feed***
-GET /feed
+
+**GET /feed**
 
 Description: Fetches the feed of positive content (stories, quotes, and news).
 Parameters:
@@ -141,7 +157,7 @@ json
   ]
 }
 ```
-GET /post/{id}
+**GET /post/{id}**
 
 Description: Fetches detailed information about a specific post.
 Parameters:
@@ -161,7 +177,8 @@ json
 }
 ```
 
-DELETE /post/{postId}
+**DELETE /post/{postId}**
+
 Purpose: Allows a user to delete one of their own posts.
 Logic:
 Validate that the requesting user owns the post.
@@ -174,8 +191,28 @@ json
 }
 ```
 
+
+**PUT /post/{postId}**
+
+Purpose: Allows a user to edit the content of their own post.
+
+Logic: Validate that the user owns the post.
+Update the post’s content in the database.
+Restrict which fields can be updated (e.g., title, content, or media, but not timestamps or ownership).
+Request Example:
+
+json
+```
+{
+  "userId": 123,
+  "title": "Updated Post Title",
+  "content": "Updated post content goes here.",
+  "media_url": "updated-media-url.jpg"
+}
+```
+
 **Interactions**
-POST /like/{contentId}
+**POST /like/{contentId}**
 
 Description: Likes a specific piece of content.
 Parameters:
@@ -188,7 +225,8 @@ json
   "message": "Post liked successfully"
 }
 ```
-DELETE /like/{contentId}
+**DELETE /like/{contentId}**
+
 Purpose: Allows a user to unlike a post they previously liked.
 Logic:
 Check if the user has liked the post.
@@ -209,8 +247,11 @@ json
   "message": "Like removed successfully."
 } 
 ```
+
+
 ***User Profile***
-GET /profile/{userId}
+
+**GET /profile/{userId}**
 
 Description: Fetches user profile details.
 Parameters:
@@ -233,8 +274,10 @@ json
   }
 }
 ```
+
 ***User Stories***
-POST /submit-story
+
+**POST /submit-story**
 Description: Allows users to submit a new story.
 Parameters:
 title (string)
@@ -250,31 +293,35 @@ json
 ```
 
 ***Endpoints for the Impact Hub***
-For Initiatives:
-GET /impact-hub
+
+**GET /impact-hub**
 
 Fetches all initiatives with filtering options.
 Parameters: category, location, sort.
-POST /impact-hub/submit
+
+**POST /impact-hub/submit**
 
 Allows users to submit a new initiative for review.
 Parameters: title, description, media_url, category.
-GET /impact-hub/{initiativeId}
+
+**GET /impact-hub/{initiativeId}**
 
 Fetches details about a specific initiative.
-POST /impact-hub/{initiativeId}/like
+
+**POST /impact-hub/{initiativeId}/like**
 
 Likes an initiative.
-POST /impact-hub/{initiativeId}/comment
 
-Adds a comment to an initiative.
+**POST /impact-hub/{initiativeId}/comment**
+Adds a comment
+
 
 ## Roadmap
 
 Day 1-2: Set up React/Express.
 Day 3-4: Implement user profile page and content feed.
-Day 5-6: Add story submission, moderation.
-Day 7-8: Implement newsletter, notifications, and search.
+Day 5-6: Add story submission, edit and adding likes
+Day 7-8: Implement ImpactHub Pagge with all functionality.
 Day 9: Test features, bug fixing, and UI refinements.
 Day 10: Final testing and deployment.
 
