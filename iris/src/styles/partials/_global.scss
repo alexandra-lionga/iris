@@ -1,0 +1,11 @@
+@use "./fonts" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "animations" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "OpenSans", serif;
+}

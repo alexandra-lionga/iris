@@ -1,13 +1,17 @@
 import "./Header.scss";
-import logo from "/src/assets/logo/iris-logo.svg"
+import logo from "/src/assets/logo/iris-logo.svg";
 
-function Header(){
+import React from "react";
+
+const Header = () => {
+  return (
     <header>
-        <nav>
-            <img src={logo} alt="website logo"/>
-        </nav>
+      <nav>
+        <img src={logo} alt="website logo" />
+        <h1>This is the header</h1>
+      </nav>
     </header>
-
-}
+  );
+};
 
 export default Header;
