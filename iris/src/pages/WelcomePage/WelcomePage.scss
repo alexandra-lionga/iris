@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  gap:8px;
+  &__heading{
+    margin: 0 auto;
+    font-size: 44px;
+  }
+  &__button{
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+    height: 35px;
+    background-color: $light-orange;
+    font-weight: 600;
+    cursor:pointer;
+  }
+  
+}

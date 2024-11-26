@@ -1,5 +1,5 @@
 import "./Header.scss";
-import logo from "/src/assets/logo/iris-logo.svg";
+import logo from "/src/assets/images/logo/iris-full-logo.png";
 
 import React from "react";
 
