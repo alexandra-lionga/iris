@@ -112,26 +112,26 @@ ImpactHub: share positive initiatives page.
 ### Mockups
 
 ***Welcome Page***
-![welcome page](<Welcome Page.png>)
+![welcome page](</src/assets/images/proposal/Welcome Page.png>)
 
 ***Main Content Page**
-![Main Content](<Main Page.png>)
+![Main Content](</src/assets/images/proposal/Main Page.png>)
 
 ***Category Details***
-![category details](<Category Details Page.png>)
+![category details](</src/assets/images/proposal/Category Details Page.png>)
 
 ***Submit Story***
-![Submit Story](<Submit Story.png>)
+![Submit Story](</src/assets/images/proposal/Submit Story.png>)
 
 ***User Account/Profile***
-![User Account/Profile](<User Account.png>)
+![User Account/Profile](</src/assets/images/proposal/User Account.png>)
 
 ***Impact Hub**
-![Impact Hub Page](<Impact Hub Page.png>)
+![Impact Hub Page](</src/assets/images/proposal/Impact Hub Page.png>)
 
 
 ### Data
-![sql ](sql_diagram.png)
+![sql ](/src/assets/images/proposal/sql_diagram.png)
 ### Endpoints
 
 ***Content Feed***
