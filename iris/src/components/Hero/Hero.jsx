@@ -1,30 +1,42 @@
 import "./Hero.scss";
 import highlights from "../../data/highlights";
+import React, { useState, useEffect } from "react";
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  function prevClickHandler() {
+    const isFirstImg = currentImageIndex === 0;
+    const newImgIndex = isFirstImg
+      ? highlights.length - 1
+      : currentImageIndex - 1;
+    setCurrentImageIndex(newImgIndex);
+  }
+  function nextClickHandler() {
+    const isLastImg = currentImageIndex === highlights.length - 1;
+    const newImgIndex = isLastImg
+      ? 0
+      : currentImageIndex + 1;
+    setCurrentImageIndex(newImgIndex);
+  }
+
   return (
     <div className="hero">
       <div className="hero__slider">
-        {highlights.map((highlight) => {
-          return (
-            <div key={highlight.id} className="hero__slider-item">
-              {/* <h1 className="hero__slider-heading">{highlight.title}</h1> */}
-              <img src={highlight.media} alt="highlighted story"className="hero__slider-img" />
-            </div>
-          );
-        })}
-        <div className="hero__btns">
-          {/* &lt; = less than = < and &gt; = greater than = > */}
-          <button id="previous">&lt;</button>
-          <button id="next">&gt;</button>
-        </div>
-        <div className="hero__dots">
-          <ul className="hero__dots-list">
-            <li className="hero__dots-item">•</li>
-            <li className="hero__dots-item">•</li>
-            <li className="hero__dots-item">•</li>
-            <li className="hero__dots-item">•</li>
-          </ul>
-        </div>
+        <div
+          style={{
+            backgroundImage: `url(${highlights[currentImageIndex].media})`,
+          }}
+          className="hero__slider-item"
+        ><h1 className="hero__slider-text">{highlights[currentImageIndex].title}</h1></div>
+      </div>
+      <div className="hero__btns">
+        {/* &lt; = less than = < and &gt; = greater than = > */}
+        <button id="previous" onClick={prevClickHandler}>
+          &lt;
+        </button>
+        <button id="next" onClick={nextClickHandler}>
+          &gt;
+        </button>
       </div>
     </div>
   );

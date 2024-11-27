@@ -1,7 +1,7 @@
 const highlights = [
     {
         "id": 1,
-        "title": "wholesome message I saw written on chalkboard of college physics class",
+        "title": "Wholesome Message in Physics Class",
         "description": "featuring “management”",
         "source": "/r/wholesome/comments/1gzb78o/wholesome_message_i_saw_written_on_chalkboard_of/",
         "media": "https://i.redd.it/ljcdfm0icz2e1.jpeg"
