@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.content-list{
+    padding: 16px;
+    &__heading{
+        color: $deep-orange;
+
+    }
+}

@@ -1,6 +1,7 @@
 import Quotes from "../Quotes/Quotes";
 import { Link } from "react-router-dom";
 import "./Main.scss";
+import { ContentList } from "../ContentList/ContentList";
 
 export const Main = ({ contentList }) => {
   const categories = [
@@ -34,6 +35,7 @@ export const Main = ({ contentList }) => {
           })}
         </ul>
       </div>
+      <ContentList contentList={contentList} categories={categories}/>
     </main>
   );
 };

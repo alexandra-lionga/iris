@@ -39,9 +39,10 @@ const Quotes = () => {
                 : "quotes__slider-item--active"
             }
           >
-            <h1 className="quotes__slider-text">
+            <h1 className="quotes__slider-quote">
               {quotes[currentQuoteIndex].quote}
             </h1>
+            <p className="quotes__slider-author">{quotes[currentQuoteIndex].author}</p>
           </div>
         </div>
       </div>
