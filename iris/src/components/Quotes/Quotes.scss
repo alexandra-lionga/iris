@@ -1,15 +1,22 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
-.quotes{
-    width: 100vw;
-    &__slider{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        cursor: pointer;
+.quotes {
+  width: 100vw;
+  padding: 16px;
+  &__slider {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    height: 7.8rem;
+    align-items: center;
+    margin-bottom: 16px;
+    &-text {
+      font-size: 22px;
+   
     }
-
+  }
 }
 .quotes__slider-item--active {
-   color: red;
-  }
+  color: $deep-orange;
+}

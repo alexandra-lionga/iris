@@ -1,2 +1,42 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+.categories {
+  background-color: $light-orange;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  &__heading{
+    margin: 8px auto;
+    color: $white;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.5rem;
+    list-style: none;
+    width: 100%;
+    border: 1px solid $white;
+    padding: 4px 8px;
+    border-radius: 20px;
+    &-item {
+     position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -15px;
+       
+        width: 100px;
+        height: 15px;
+      }
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: $white;
+  }
+}
