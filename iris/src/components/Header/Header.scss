@@ -1,0 +1,46 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap:8px;
+  background-color: $light-orange;
+  &__logo {
+    width: 100%;
+    height: auto;
+  }
+  &__searchbar {
+    padding-left: 2rem;
+    background-image: url("/src/assets/images/icons/search.svg");
+    background-position: 0.5rem;
+    background-repeat: no-repeat;
+    flex-grow: 1;
+    border-radius: 20px;
+    max-width:200px;
+    height: 35px;
+    border: 1px solid $deep-orange;
+    @include tablet {
+      max-width: 15rem;
+    }
+  }
+  &__list {
+    display: none;
+    gap: 0.5rem;
+    list-style-type: none;
+    font-size: 0.75rem;
+      &-item {
+      color: $white;
+      padding: 0.25rem 1rem;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: $white;
+   
+    
+  }
+}

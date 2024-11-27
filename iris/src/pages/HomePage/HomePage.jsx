@@ -1,4 +1,5 @@
 import Header from "../../components/Header/Header";
+import Hero from "../../components/Hero/Hero";
 import "./HomePage.scss";
 
 
@@ -6,6 +7,7 @@ import "./HomePage.scss";
   return (
     <>
     <Header/>
+    <Hero/>
     </>
   )
 }
