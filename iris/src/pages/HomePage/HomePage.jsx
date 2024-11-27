@@ -27,7 +27,7 @@ const HomePage = () => {
     <>
       <Header />
       <Hero />
-      <Main/>
+      <Main contentList={contentList}/>
     </>
   );
 };

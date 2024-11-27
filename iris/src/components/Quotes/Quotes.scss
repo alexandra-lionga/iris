@@ -1,0 +1,15 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+.quotes{
+    width: 100vw;
+    &__slider{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+    }
+
+}
+.quotes__slider-item--active {
+   color: red;
+  }
