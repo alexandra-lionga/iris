@@ -2,7 +2,6 @@ import "./WelcomePage.scss";
 import smileRain from "/src/assets/images/single-smile-rain.svg"
 import sunIcon from "/src/assets/images/icons/sun-icon.png"
 import { useNavigate } from "react-router-dom";
-const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const WelcomePage = ({handleModeToggle}) => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import "./Hero.scss";
 import highlights from "../../data/highlights";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
