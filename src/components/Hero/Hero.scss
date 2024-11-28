@@ -4,27 +4,59 @@
 .hero {
   width: 100vw;
   height: auto;
+  @include desktop {
+    position: absolute;
+    top: 0;
+    height: 350px;
+  }
   &__slider {
     position: relative;
     width: 100vw;
     height: auto;
-
+    @include desktop {
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // height: 100%;
+    }
+    &-overlay {
+      @include desktop {
+        position: absolute;
+        width: 100vw;
+        height: 700px;
+        background-color: rgba(3, 3, 3, 0.5);
+        z-index: 2;
+      }
+    }
     &-item {
       background-color: rgba(3, 3, 3, 0.164);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       width: 100vw;
-      height: 200px;
+      height: 300px;
       display: flex;
       align-items: flex-end;
+      @include desktop {
+        height: 700px;
+        z-index: 1;
+      }
     }
     &-text {
-      color: $white;
+      color: $deep-orange;
       font-size: 18px;
       padding: 0 0 32px 16px;
-      background-color: rgba(3, 3, 3, 0.164);
       width: 100%;
+      @include desktop {
+        position: absolute;
+        font-size: 64px;
+        padding-left: 6rem;
+        width: 80%;
+        bottom: 23%;
+        color: $white;
+        z-index: 100;
+      }
+  
     }
   }
   &__btns {
@@ -35,14 +67,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include desktop {
+      top: 300px;
+    }
   }
   #previous,
   #next {
+    position: relative;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
     background-color: #fff5;
     color: $white;
     cursor: pointer;
+    z-index: 100;
+    @include desktop {
+      width: 4rem;
+      height: 4rem;
+    }
   }
 }

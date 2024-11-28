@@ -15,7 +15,7 @@ const highlights = [
     },
     {
         "id": 3,
-        "title": "Humans Teach Orphaned Orangutan Babies how to Climb",
+        "title": "Humans Teach Orphaned Orangutan Babies How to Climb",
         "description": "",
         "source": "/r/HumansBeingBros/comments/1gx4pc3/humans_teach_orphaned_orangutan_babies_how_to/",
         "media": "https://i.redd.it/5wzhda02if2e1.jpeg"

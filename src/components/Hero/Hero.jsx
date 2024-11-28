@@ -13,21 +13,23 @@ const Hero = () => {
   }
   function nextClickHandler() {
     const isLastImg = currentImageIndex === highlights.length - 1;
-    const newImgIndex = isLastImg
-      ? 0
-      : currentImageIndex + 1;
+    const newImgIndex = isLastImg ? 0 : currentImageIndex + 1;
     setCurrentImageIndex(newImgIndex);
   }
 
   return (
     <div className="hero">
       <div className="hero__slider">
+        <div className="hero__slider-overlay"></div>
+        <h1 className="hero__slider-text">
+          {highlights[currentImageIndex].title}
+        </h1>
         <div
           style={{
             backgroundImage: `url(${highlights[currentImageIndex].media})`,
           }}
           className="hero__slider-item"
-        ><h1 className="hero__slider-text">{highlights[currentImageIndex].title}</h1></div>
+        ></div>
       </div>
       <div className="hero__btns">
         {/* &lt; = less than = < and &gt; = greater than = > */}

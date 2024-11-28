@@ -7,11 +7,24 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  gap:0.5rem;
-  background-color: $light-orange;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  position: relative;
+  @include desktop {
+    padding: 1.5rem 6rem;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+  }
   &__logo {
     width: 100%;
     height: auto;
+  }
+  &__content {
+    @include desktop {
+      display: flex;
+    }
   }
   &__searchbar {
     padding-left: 2rem;
@@ -19,28 +32,32 @@
     background-position: 0.5rem;
     background-repeat: no-repeat;
     flex-grow: 1;
-    border-radius: 20px;
-    max-width:200px;
-    height: 35px;
+    border-radius: 1.25rem;
+    max-width: 12.5rem;
+    height: 2.1875rem;
     border: 1px solid $deep-orange;
     @include tablet {
       max-width: 15rem;
     }
   }
   &__list {
-    display: none;
     gap: 0.5rem;
     list-style-type: none;
     font-size: 0.75rem;
-      &-item {
-      color: $white;
+    @include desktop {
+      display: flex;
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+    &-item {
+      color: $deep-orange;
       padding: 0.25rem 1rem;
+      @include desktop {
+      }
     }
   }
   &__link {
     text-decoration: none;
     color: $white;
-   
-    
   }
 }
