@@ -31,7 +31,11 @@
   border-radius: 5px;
   padding: 16px 24px;
   font-size: 24px;
+ 
   color: $white;
+  &__text{
+    font-weight: 700;
+  }
   &__input{
     margin-top: 16px;
     flex-grow: 1;
