@@ -4,6 +4,8 @@ import "./HomePage.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Main from "../../components/Main/Main";
+import Quotes from "../../components/Quotes/Quotes";
+
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -27,7 +29,8 @@ const HomePage = () => {
     <>
       <Header />
       <Hero />
-      {/* <Main contentList={contentList}/> */}
+      <Quotes/>
+      <Main contentList={contentList}/>
     </>
   );
 };

@@ -11,6 +11,7 @@ const CategoryPage = () => {
       <Hero/>
       <main>
         <h2>{categoryId}</h2>
+        
       </main>
     </>
   );

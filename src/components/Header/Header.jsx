@@ -13,6 +13,7 @@ const Header = () => {
           <img src={logo} alt="website logo" className="nav__logo" />
         </Link>
         <div className="nav__content">
+        {/* <img src="/src/assets/images/icons/Burger Menu 1.svg"/> */}
           <input
             type="text"
             name="searchBar"
@@ -38,6 +39,7 @@ const Header = () => {
               </NavLink>
             </li>
           </ul>
+       
         </div>
       </nav>
     </header>

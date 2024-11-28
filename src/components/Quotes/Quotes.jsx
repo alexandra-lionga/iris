@@ -22,7 +22,6 @@ const Quotes = () => {
   });
 
   return (
-    <main>
       <div className="quotes">
         <div className="quotes__slider">
           <div
@@ -46,7 +45,6 @@ const Quotes = () => {
           </div>
         </div>
       </div>
-    </main>
   );
 };
 export default Quotes;

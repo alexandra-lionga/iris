@@ -21,7 +21,7 @@ export const ContentList = ({ contentList, categories }) => {
       }, 2500);
   });
   return (
-    <section className="content-list">
+    <section className="content-list container">
       <div
         onMouseEnter={() => {
           setAutoPlay(false);

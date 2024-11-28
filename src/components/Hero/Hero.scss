@@ -5,20 +5,12 @@
   width: 100vw;
   height: auto;
   @include desktop {
-    position: absolute;
-    top: 0;
-    height: 350px;
+    height: 700px;
   }
   &__slider {
     position: relative;
     width: 100vw;
     height: auto;
-    @include desktop {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      // height: 100%;
-    }
     &-overlay {
       @include desktop {
         position: absolute;
