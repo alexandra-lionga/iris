@@ -1,26 +1,58 @@
-import ContentCard from "../ContentCard/ContentCard";
 import "./ContentList.scss";
-import { useEffect, useState } from "react";
-import highlights from "../../data/highlights";
+import { Link } from "react-router-dom";
 
+
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 const ContentList = ({ contentList }) => {
   return (
-    <div className="content-list">
-      {highlights.map((post) => {
+    <div className="content">
+      {contentList?.map((post) => {
+        let source_url = post.source.startsWith("/r/")
+          ? `https://www.reddit.com/${post.source}`
+          : post.source;
         return (
           <article key={post.id} className="content__article">
-            <p>{post.category}</p>
-            <h2>{post.title}</h2>
-            <p>From {post.source_name}</p>
+            <Link
+              to={`/category/${post.category}`}
+              className="content__category"
+            >
+              {post.category}
+            </Link>
+            <Link to={`/post/${post.id}`} className="content__headline">
+              <h2>{post.title}</h2>
+            </Link>
+            <p className="content__author">
+              Source:{" "}
+              <a href={source_url} className="content__external-link">
+                {post.source_name}
+              </a>
+            </p>
             {post.media.endsWith("fallback") ? (
-              <video width="320" height="240" controls className="article__video">
+              <video controls className="content__video">
                 <source src={post.media} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             ) : (
-              <img src={post.media} alt="article image" className="article__img"/>
+              <img
+                src={
+                  post.media.startsWith("images")
+                    ? `${API_BASE_URL}/${post.media}`
+                    : post.media
+                }
+                alt="article image"
+                className="content__img"
+              />
             )}
-            <p>{post.description}</p>
+            {post.description === "" ? (
+              <p className="content__description">
+                Checkout the story behind this post:{" "}
+                <a href={source_url} className="content__description-link">
+                  here.
+                </a>
+              </p>
+            ) : (
+              <p className="content__description">{post.description}</p>
+            )}
           </article>
         );
       })}

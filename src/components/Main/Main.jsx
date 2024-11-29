@@ -1,25 +1,13 @@
-import { Link } from "react-router-dom";
 import "./Main.scss";
+import categories from "../../data/categories.js";
 import ContentList from "../ContentList/ContentList";
 
-export const Main = ({ contentList }) => {
-  const categories = [
-    "GoodDeeds",
-    "Innovation",
-    "Health",
-    "Environment",
-    "Humanitarian",
-    "SuccessStories",
-    "Inspiration",
-    "Community",
-    "Kindness",
-    "PositiveEvents",
-  ];
-
+const Main = ({ contentList }) => {
+ 
   return (
     <main className="main">
       <div className="main-container">
-        <ContentList contentList={contentList} categories={categories} />
+        <ContentList contentList={contentList} />
       </div>
       <div className="side-container">
         <div className="newsletter">

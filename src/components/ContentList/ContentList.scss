@@ -1,10 +1,60 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.content-list{
-    padding: 16px;
-    &__heading{
-        color: $deep-orange;
-
+.content {
+  
+  
+  border-radius: 4px;
+  &__article {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(500px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px ;
+    padding: 3rem 2rem 2rem 2rem;
+    background-color: $white;
+  }
+  &__category {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: $deep-orange;
+  }
+  &__headline {
+    word-wrap: break-word;
+    text-decoration: none;
+    letter-spacing: normal;
+    color: $deep-orange;
+    font-style: normal;
+    font-stretch: normal;
+    @include desktop {
+      font-weight: 800;
+      color: #2d2d2d;
+      font-size: 32px;
+      line-height: 1.15;
     }
+  }
+  &__author {
+    @include desktop {
+      font-size: 12px;
+      font-weight: normal;
+      color: #6d7278;
+      line-height: normal;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  &__description {
+    @include desktop {
+      font-size: 21px;
+      font-weight: normal;
+      color: #191919;
+      line-height: 29px;
+      margin: 24px;
+    }
+  }
 }

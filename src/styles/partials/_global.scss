@@ -23,3 +23,14 @@ body{
 .light-mode-icon{
   width:30px;
 }
+.loading{
+  margin: 50vh auto;
+  width: 100%;
+  border: 1rem solid #00000079;
+  border-radius: 50%;
+  border-top: 1rem solid $deep-orange;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
