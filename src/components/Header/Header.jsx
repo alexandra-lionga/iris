@@ -53,8 +53,7 @@ const Header = () => {
 
           </ul>
          
-          <img src={`${isSerachBarOpen ? closeIcon : searchIcon}`} onClick={searchBarHandler} className="nav__searchbar__icon"/>
-          {/* <img src={closeIcon} onClick={searchBarHandler} className={`nav__searchbar__icon-close ${isSerachBarOpen ? "nav__searchbar__icon-close--active" : ""}`} /> */}
+          <img src={`${isSerachBarOpen ? closeIcon : searchIcon}`} onClick={searchBarHandler} className={`nav__searchbar__icon  ${isSerachBarOpen ? "nav__searchbar__icon--active" : ""}`}/>
           <div className={`nav__searchbar-container ${isSerachBarOpen ? "nav__searchbar-container--active" : ""}`}>
             <input type="text" name="searchBar" className="nav__searchbar" placeholder="Search here..."/>
           </div>
