@@ -11,9 +11,9 @@ const HomePage = ({contentList}) => {
   return (
     <>
       <Header />
-      <Hero />
+      {/* <Hero />
       <Quotes />
-      <Main  contentList={contentList}/>
+      <Main  contentList={contentList}/> */}
     </>
   );
 };

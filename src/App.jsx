@@ -46,7 +46,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<WelcomePage handleModeToggle={handleModeToggle} />}
+            element={<WelcomePage/>}
           />
           <Route path="/home" element={<HomePage contentList={contentList}/>} />
           <Route path="/category/:categoryId" element={<CategoryPage contentList={contentList} />} />

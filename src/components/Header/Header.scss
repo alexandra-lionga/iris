@@ -3,13 +3,14 @@
 
 .nav {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
   padding: 1rem;
-  gap: 0.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
   z-index: 1000;
+  position: relative;
+  //background-color: $deep-orange;
+  @include tablet {
+  }
   @include desktop {
     position: absolute;
     top: 0;
@@ -22,46 +23,115 @@
   &__logo {
     width: 100%;
     height: auto;
+    display: none;
+    @include tablet {
+    }
+    @include desktop {
+    }
+    &--mobile {
+      width: 50px;
+      height: auto;
+    }
   }
   &__content {
     @include desktop {
       display: flex;
     }
   }
+  &__searchbar-container {
+    position: absolute;
+    display: flex;
+    background-color: $white;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1.5rem;
+    top: 0;
+    right: -100%;
+    transition: 0.5s ease-in-out;
+    &--active {
+      right: 0;
+    }
+  }
   &__searchbar {
-    padding-left: 2rem;
-    background-image: url("/src/assets/images/icons/search.svg");
-    background-position: 0.5rem;
-    background-repeat: no-repeat;
-    flex-grow: 1;
-    border-radius: 1.25rem;
-    max-width: 12.5rem;
-    height: 2.1875rem;
-    border: 1px solid $deep-orange;
+    position: relative;
+    width: 100%;
+    border: none;
+    flex: 1;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    height: 3.125rem;
     @include tablet {
       max-width: 15rem;
     }
+    &__icon {
+      position: absolute;
+      right: 50px;
+      bottom: 37px;
+      width: 20px;
+      height: 20px;
+      z-index: 1000;
+      &-close {
+      }
+    }
   }
   &__list {
-    gap: 0.5rem;
+    position: absolute;
+    right: 0;
+    flex-wrap: wrap;
     list-style-type: none;
-    font-size: 0.75rem;
+    padding: 16px;
+    font-size: 1rem;
+    visibility: hidden;
+    opacity: 0;
+
     @include desktop {
       display: flex;
       font-size: 1rem;
       margin-top: 0.25rem;
     }
+    &--active {
+      visibility: visible;
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+      background-color: rgba(0, 0, 0, 0.5);
+      top: 89px;
+      gap:16px;
+      height: 100vh;
+      width: 100%;
+    }
     &-item {
-      color: $deep-orange;
+      color: rgb(255, 255, 255);
       font-weight: 500;
       padding: 0.25rem 1rem;
       transition: 0.5s;
+      // /text-transform: uppercase;
+      
       @include desktop {
       }
     }
   }
   &__link {
     text-decoration: none;
-    color: $white;
+    color: black;
+  }
+  &__icon-open {
+    position: absolute;
+    right: 16px;
+    bottom: 32px;
+    width: 30px;
+    height: 30px;
+    z-index: 1000;
+    @include desktop {
+      position: relative;
+      display: none;
+    }
+  }
+  &__icon-close {
+    display: none;
+    width: 30px;
+    height: 30px;
   }
 }

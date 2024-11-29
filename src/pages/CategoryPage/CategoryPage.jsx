@@ -15,17 +15,19 @@ const CategoryPage = ({ contentList }) => {
     (content) => content.category == categoryId
   );
 
-  useEffect(()=>{
+  useEffect(() => {
     setCategoryContent(catContent);
-   
-  },[categoryId])
+  }, [categoryId]);
 
   return (
     <>
       <Header />
       <Hero />
-      <h2 className="category__heading">{categoryId}</h2>
-      <Main contentList={categoryContent}/>
+      <div className="category">
+        <h2 className="category__heading">{categoryId}</h2>
+      </div>
+
+      <Main contentList={categoryContent} />
     </>
   );
 };
