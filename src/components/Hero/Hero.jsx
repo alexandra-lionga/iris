@@ -28,7 +28,7 @@ const Hero = () => {
           style={{
             backgroundImage: `url(${highlights[currentImageIndex].media})`,
           }}
-          className="hero__slider-item"
+          className="hero__slider-highlights"
         ></div>
       </div>
       <div className="hero__btns">

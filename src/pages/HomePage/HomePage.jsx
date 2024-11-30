@@ -10,7 +10,6 @@ const HomePage = ({contentList}) => {
 
   return (
     <>
-      <Header />
       <Hero />
       <Quotes />
       <Main  contentList={contentList}/>

@@ -4,6 +4,7 @@ import burgerMenu from "/src/assets/images/icons/Burger Menu 1.svg";
 import flowerIcon from "/src/assets/images/icons/flower-icon.png";
 import closeIcon from "/src/assets/images/icons/Close.png";
 import searchIcon from "/src/assets/images/icons/search.svg";
+import plusCircleIcon from "/src/assets/images/icons/plus-circle.png";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -52,10 +53,12 @@ const Header = () => {
             </li>
 
           </ul>
-         
-          <img src={`${isSerachBarOpen ? closeIcon : searchIcon}`} onClick={searchBarHandler} className={`nav__searchbar__icon  ${isSerachBarOpen ? "nav__searchbar__icon--active" : ""}`}/>
+          <Link to="/share-your-story"><img src={plusCircleIcon} className="nav__icon-submit" /></Link>
+
+          <img src={`${isSerachBarOpen ? closeIcon : searchIcon}`} onClick={searchBarHandler} className={`nav__searchbar__icon  ${isSerachBarOpen ? "nav__searchbar__icon--active" : ""}`} />
+          
           <div className={`nav__searchbar-container ${isSerachBarOpen ? "nav__searchbar-container--active" : ""}`}>
-            <input type="text" name="searchBar" className="nav__searchbar" placeholder="Search here..."/>
+            <input type="text" name="searchBar" className="nav__searchbar" placeholder="Search here..." />
           </div>
 
         </div>

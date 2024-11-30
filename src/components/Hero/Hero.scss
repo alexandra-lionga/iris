@@ -3,58 +3,59 @@
 
 .hero {
   width: 100vw;
-  height: auto;
+  height: 18.75rem;
   @include desktop {
-    height: 700px;
+    height: 43.75rem;
   }
   &__slider {
     position: relative;
     width: 100vw;
-    height: auto;
+    height: 18.75rem;
     &-overlay {
+      position: absolute;
+      width: 100vw;
+      height: 18.75rem;
+      background-color: rgba(3, 3, 3, 0.5);
+      z-index: 2;
       @include desktop {
-        position: absolute;
-        width: 100vw;
-        height: 700px;
-        background-color: rgba(3, 3, 3, 0.5);
-        z-index: 2;
+        height: 43.75rem;
       }
     }
-    &-item {
-      background-color: rgba(3, 3, 3, 0.164);
+
+    &-highlights {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       width: 100vw;
-      height: 300px;
+      height: 18.75rem;
       display: flex;
       align-items: flex-end;
+      z-index: 1;
       @include desktop {
-        height: 700px;
-        z-index: 1;
+        height: 43.75rem;
       }
     }
     &-text {
-      color: $deep-orange;
-      font-size: 18px;
-      padding: 0 0 32px 16px;
-      width: 100%;
+      position: absolute;
+      color: $white;
+      bottom: 20%;
+      font-size: 22px;
+      padding-left:2rem;
+      z-index: 100;
+      width:1024px;
+      max-width: 1024px;
       @include desktop {
-        position: absolute;
         font-size: 64px;
         padding-left: 6rem;
         width: 80%;
-        bottom: 23%;
-        color: $white;
-        z-index: 100;
+        top:300px;
       }
-  
     }
   }
   &__btns {
     position: absolute;
     padding: 0 16px;
-    top: 35%;
+    top: 25%;
     width: 100vw;
     display: flex;
     justify-content: space-between;

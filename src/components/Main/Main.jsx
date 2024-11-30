@@ -1,5 +1,4 @@
 import "./Main.scss";
-import categories from "../../data/categories.js";
 import ContentList from "../ContentList/ContentList";
 
 const Main = ({ contentList }) => {

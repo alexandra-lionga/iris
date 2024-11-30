@@ -1,5 +1,4 @@
-import Header from "../../components/Header/Header";
-import Hero from "../../components/Hero/Hero";
+
 import "./CategoryPage.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -21,8 +20,7 @@ const CategoryPage = ({ contentList }) => {
 
   return (
     <>
-      <Header />
-      <Hero />
+  
       <div className="category">
         <h2 className="category__heading">{categoryId}</h2>
       </div>

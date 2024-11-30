@@ -5,6 +5,8 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import ShareYourStoryPage from "./pages/ShareYourStoryPage/ShareYourStoryPage";
+import Header from "./components/Header/Header";
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <Header/>
         <Routes>
           <Route
             path="/"
@@ -50,6 +53,7 @@ function App() {
           />
           <Route path="/home" element={<HomePage contentList={contentList}/>} />
           <Route path="/category/:categoryId" element={<CategoryPage contentList={contentList} />} />
+          <Route path="/share-your-story" element={<ShareYourStoryPage />} />
         </Routes>
       </BrowserRouter>
     </>
