@@ -38,18 +38,18 @@ const Header = () => {
           <ul className={`nav__list ${isNavOpen ? "nav__list--active" : ""}`}>
 
             <li className="nav__list-item">
-              <NavLink to="/home" className="nav__link"> Home</NavLink>
+              <NavLink to="/home" className="nav__link" onClick={displayNav} > Home</NavLink>
             </li>
 
             {/* Categories Dropdown */}
             <li className="nav__list-item">Categories</li>
 
             <li className="nav__list-item">
-              <NavLink to="/impact-hub" className="nav__link"> ImpactHub </NavLink>
+              <NavLink to="/impact-hub" className="nav__link" onClick={displayNav} > ImpactHub </NavLink>
             </li>
 
             <li className="nav__list-item">
-              <NavLink to="/about-us" className="nav__link"> About Us </NavLink>
+              <NavLink to="/about-us" className="nav__link" onClick={displayNav} > About Us </NavLink>
             </li>
 
           </ul>

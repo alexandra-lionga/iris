@@ -48,8 +48,11 @@
     height: 100%;
     top: 0;
     right: -100%;
+    visibility: hidden;
     transition: 0.5s ease-in-out;
+    overflow-x: hidden;
     &--active {
+      visibility: visible;
       right: 0;
     }
   }
@@ -142,10 +145,9 @@
     width: 30px;
     height: 30px;
   }
-  &__icon-submit{
+  &__icon-submit {
     @extend .nav__icon-open;
     right: 75px;
     opacity: 0.8;
-    
   }
 }

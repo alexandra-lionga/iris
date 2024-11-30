@@ -53,7 +53,7 @@ function App() {
           />
           <Route path="/home" element={<HomePage contentList={contentList}/>} />
           <Route path="/category/:categoryId" element={<CategoryPage contentList={contentList} />} />
-          <Route path="/share-your-story" element={<ShareYourStoryPage />} />
+          <Route path="/share-your-story" element={<ShareYourStoryPage contentList={contentList} />} />
         </Routes>
       </BrowserRouter>
     </>
