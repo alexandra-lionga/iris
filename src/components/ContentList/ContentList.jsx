@@ -7,9 +7,11 @@ const ContentList = ({ contentList }) => {
   return (
     <div className="content">
       {contentList?.map((post) => {
+
         let source_url = post.source.startsWith("/r/")
           ? `https://www.reddit.com/${post.source}`
-          : post.source;
+          : post.source == '' ? "http://localhost:5173/home" : post.source ;
+
         return (
           <article key={post.id} className="content__article">
             <Link
@@ -22,12 +24,12 @@ const ContentList = ({ contentList }) => {
               <h2>{post.title}</h2>
             </Link>
             <p className="content__author">
-              Source:{" "}
-              <a href={source_url} className="content__external-link">
+              By: {source_url ? (<a href={source_url} className="content__external-link">
                 {post.source_name}
-              </a>
+              </a>):""}
+             
             </p>
-            {post.media.endsWith("fallback") ? (
+            {post.media.endsWith("fallback" || ".mp4") ? (
               <video controls className="content__video">
                 <source src={post.media} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -37,7 +39,7 @@ const ContentList = ({ contentList }) => {
                 src={
                   post.media.startsWith("images")
                     ? `${API_BASE_URL}/${post.media}`
-                    : post.media
+                      : post.media.startsWith("userFiles") ? `${API_BASE_URL}/${post.media}` : post.media
                 }
                 alt="article image"
                 className="content__img"
