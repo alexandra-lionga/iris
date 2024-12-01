@@ -7,6 +7,7 @@ import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ShareYourStoryPage from "./pages/ShareYourStoryPage/ShareYourStoryPage";
 import Header from "./components/Header/Header";
+import StoryDetailsPage from "./pages/StoryDetailsPage/StoryDetailsPage";
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           <Route path="/home" element={<HomePage contentList={contentList}/>} />
           <Route path="/category/:categoryId" element={<CategoryPage contentList={contentList} />} />
           <Route path="/share-your-story" element={<ShareYourStoryPage contentList={contentList} />} />
+          <Route path="/story/:storyId" element={<StoryDetailsPage contentList={contentList} />} />
         </Routes>
       </BrowserRouter>
     </>

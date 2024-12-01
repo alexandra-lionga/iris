@@ -1,16 +1,25 @@
 import "./ContentList.scss";
 import { Link } from "react-router-dom";
-
+import trashIcon from "../../assets/images/icons/trash-bin.png";
+import heartFilled from "../../assets/images/icons/heart-filled.png";
+import heart from "../../assets/images/icons/heart.png";
+import { useState } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 const ContentList = ({ contentList }) => {
+  const [isLikedAdded, setIsLikeAdded] = useState(true);
+
+  function likesHandler() {
+    setIsLikeAdded((previous) => !previous);
+  }
   return (
     <div className="content">
       {contentList?.map((post) => {
-
         let source_url = post.source.startsWith("/r/")
           ? `https://www.reddit.com/${post.source}`
-          : post.source == '' ? "http://localhost:5173/home" : post.source ;
+          : post.source == ""
+          ? "http://localhost:5173/home"
+          : post.source;
 
         return (
           <article key={post.id} className="content__article">
@@ -20,31 +29,58 @@ const ContentList = ({ contentList }) => {
             >
               {post.category}
             </Link>
-            <Link to={`/post/${post.id}`} className="content__headline">
+
+            <Link to={`/story/${post.id}`} className="content__headline">
               <h2>{post.title}</h2>
             </Link>
             <p className="content__author">
-              By: {source_url ? (<a href={source_url} className="content__external-link">
-                {post.source_name}
-              </a>):""}
-             
+              By:{" "}
+              {source_url ? (
+                <a href={source_url} className="content__external-link">
+                  {post.source_name}
+                </a>
+              ) : (
+                ""
+              )}
             </p>
-            {post.media.endsWith("fallback" || ".mp4") ? (
-              <video controls className="content__video">
-                <source src={post.media} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <img
-                src={
-                  post.media.startsWith("images")
-                    ? `${API_BASE_URL}/${post.media}`
-                      : post.media.startsWith("userFiles") ? `${API_BASE_URL}/${post.media}` : post.media
-                }
-                alt="article image"
-                className="content__img"
-              />
-            )}
+            <div className="content-media">
+              {post.media.endsWith("fallback" || ".mp4") ? (
+                <video controls className="content__video">
+                  <source src={post.media} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <img
+                  src={
+                    post.media.startsWith("images")
+                      ? `${API_BASE_URL}/${post.media}`
+                      : post.media.startsWith("userFiles")
+                      ? `${API_BASE_URL}/${post.media}`
+                      : post.media
+                  }
+                  alt="article image"
+                  className="content__img"
+                />
+              )}
+              <div className="content-interactions">
+                <img
+                  src={trashIcon}
+                  alt="trash icon"
+                  className={
+                    post.source_name == "Alexandra Lionga"
+                      ? "content-deleteIcon"
+                      : "content-deleteIcon--hidden"
+                  }
+                />
+
+                <img
+                  src={`${isLikedAdded ? heartFilled : heart}`}
+                  onClick={likesHandler}
+                  className="content-likeIcon"
+                />
+              </div>
+            </div>
+
             {post.description === "" ? (
               <p className="content__description">
                 Checkout the story behind this post:{" "}

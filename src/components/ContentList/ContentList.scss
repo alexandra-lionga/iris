@@ -2,14 +2,12 @@
 @use "../../styles/partials/mixins" as *;
 
 .content {
-  
-  
   border-radius: 4px;
   &__article {
     display: grid;
     grid-template-columns: repeat(1, minmax(500px, 1fr));
     gap: 16px;
-    margin-bottom: 24px ;
+    margin-bottom: 24px;
     padding: 3rem 2rem 2rem 2rem;
     background-color: $white;
   }
@@ -56,5 +54,28 @@
       line-height: 29px;
       margin: 24px;
     }
+  }
+  &-interactions{
+    display: flex;
+    gap:8px;
+    margin-top:8px;
+  }
+  &-deleteIcon {
+    right: 3.75rem;
+    top: 47.5rem;
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid black;
+    padding: 0.125rem;
+    border-radius: 1.5625rem;
+    &--hidden {
+      display: none;
+    }
+  }
+  &-likeIcon {
+    width: 3rem;
+    height: 3rem;
+    bottom: -37.5rem;
+    left: 3.4375rem;
   }
 }

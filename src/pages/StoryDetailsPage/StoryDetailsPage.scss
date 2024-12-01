@@ -1,0 +1,149 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.comments {
+  padding: 1rem;
+  &__heading {
+    padding-bottom: 0.5rem;
+    @include tablet {
+      padding: 1.5rem 1rem 1rem 1rem;
+    }
+    @include desktop {
+      padding: 2rem 8.2rem 0rem 7rem;
+    }
+  }
+  &__form {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    @include tablet {
+      padding: 1rem 4rem 2rem 4rem;
+    }
+    @include desktop {
+      padding: 1rem 24rem 1rem 24rem;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      bottom: -8px;
+      background-color:blue;
+      @include tablet {
+        width: 81%;
+        left: 10%;
+      }
+      @include desktop {
+        width: 38.5%;
+        left: 31%;
+      }
+    }
+  }
+  &__avatar {
+    padding-top: 24px;
+    &-img {
+      border-radius: 50%;
+      width: 2.25rem;
+      height: 2.25rem;
+      max-width: 2.25rem;
+      max-height: 2.25rem;
+      object-fit:cover;
+    }
+  }
+  &__entry {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include tablet {
+      flex-grow: 1;
+    }
+    &-header {
+      display: flex;
+      flex-direction: column;
+    }
+    &-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+  #comment {
+    min-height: 2.25rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    border: 1px solid blue;
+    background-color:rgb(255, 254, 254);
+    
+  }
+  &__btn {
+    text-align: center;
+    background-color: rgb(179, 179, 179);
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    @include tablet {
+      width: 30%;
+      align-self: flex-end;
+    }
+    @include desktop {
+      width: 40%;
+    }
+  }
+}
+.error{
+  border-color: red;
+}
+.posted-comments {
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    padding: 0rem 4rem 0.5rem 4rem;
+  }
+  @include desktop {
+    padding: 0.5rem 24rem;
+  }
+  .posted-comment {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 0 0.5rem 0;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      bottom: -0.5rem;
+      background-color: blue;
+    }
+    &__img {
+      border-radius: 50%;
+      width: 2.25rem;
+      height: 2.25rem;
+      max-width: 2.25rem;
+      max-height: 2.25rem;
+      background-color: blue;
+      background-position: cover;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 0.5rem;
+    }
+    &__header {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__username {
+      font-weight: bold;
+    }
+    &__timestamp {
+      color:rgb(0, 0, 0);
+    }
+  }
+}

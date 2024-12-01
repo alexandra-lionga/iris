@@ -90,15 +90,9 @@ const ShareYourStoryPage = ({ contentList }) => {
     }
 
     try {
-      const { data } = await axios.post(`${API_BASE_URL}/api/content/submit`,
-        formData, {
-          headers: {
-            "Content-Type": "multipart/form-data", // Ensure the correct content type
-          }
-      },
-
-
-      );
+      const { data } = await axios.post(`${API_BASE_URL}/api/content/story`,
+        formData);
+        
       for (let [key, value] of formData.entries()) {
         console.log(key, value); // Check the contents of FormData
       }
