@@ -3,14 +3,17 @@
 
 .hero {
   width: 100vw;
-  height: 18.75rem;
+  height: auto;
   @include desktop {
     height: 43.75rem;
   }
   &__slider {
-    position: relative;
-    width: 100vw;
-    height: 18.75rem;
+       position: relative;
+      width: 100vw;
+    @include desktop {
+      position: relative;
+      height: 43.75rem;
+    }
     &-overlay {
       position: absolute;
       width: 100vw;
@@ -40,15 +43,16 @@
       color: $white;
       bottom: 20%;
       font-size: 22px;
-      padding-left:2rem;
+      padding-left: 2rem;
       z-index: 100;
-      width:1024px;
-      max-width: 1024px;
+
       @include desktop {
         font-size: 64px;
         padding-left: 6rem;
         width: 80%;
-        top:300px;
+        top: 300px;
+        width: 1024px;
+        max-width: 1024px;
       }
     }
   }

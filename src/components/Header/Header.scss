@@ -71,12 +71,7 @@
       width: 20px;
       height: 20px;
       z-index: 1001;
-      @include desktop {
-        filter: invert(100%) sepia(100%) saturate(0) hue-rotate(0deg); //Changing the color of the search icon to white
-      }
-      &--active {
-        filter: none;
-      }
+      filter: invert(100%) sepia(100%) saturate(0) hue-rotate(0deg); //Changing the color of the search icon to white
     }
   }
   &__list {
@@ -147,6 +142,7 @@
   }
   &__icon-submit {
     @extend .nav__icon-open;
+    filter: invert(100%) sepia(100%) saturate(0) hue-rotate(0deg); //Changing the color of the search icon to white
     right: 75px;
     opacity: 0.8;
   }
