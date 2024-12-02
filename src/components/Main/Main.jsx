@@ -1,12 +1,12 @@
 import "./Main.scss";
 import ContentList from "../ContentList/ContentList";
 
-const Main = ({ contentList, feedName }) => {
+const Main = ({ feedName, searchKey }) => {
  
   return (
     <main className="main">
       <div className="main-container">
-        <ContentList contentList={contentList} feedName={feedName}/>
+        <ContentList searchKey={searchKey}feedName={feedName}/>
       </div>
       <div className="side-container">
         <div className="newsletter">

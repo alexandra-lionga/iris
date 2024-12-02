@@ -11,9 +11,10 @@ import { useState } from "react";
 
 import React from "react";
 
-const Header = ({ contentList }) => {
+const Header = ({ clearSearch, setSearchKey, searchKey }) => {
   const [isNavOpen, setNavOpen] = useState(false);
-  const [isSerachBarOpen, setIsSearchBarOpen] = useState(false);
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
+
 
   const displayNav = () => {
     setNavOpen((previous) => !previous);
@@ -22,8 +23,16 @@ const Header = ({ contentList }) => {
     setIsSearchBarOpen((previous) => !previous);
   };
 
+  function searchHandler(key) {
+    if (isSearchBarOpen==true) {
+      setSearchKey(key);
+    } else {
+      clearSearch();
+    }
 
-  
+
+  }
+
 
   return (
     <header>
@@ -70,23 +79,23 @@ const Header = ({ contentList }) => {
           </Link>
 
           <img
-            src={`${isSerachBarOpen ? closeIcon : searchIcon}`}
+            src={`${isSearchBarOpen ? closeIcon : searchIcon}`}
             onClick={searchBarHandler}
-            className={`nav__searchbar__icon  ${
-              isSerachBarOpen ? "nav__searchbar__icon--active" : ""
-            }`}
+            className={`nav__searchbar__icon  ${isSearchBarOpen ? "nav__searchbar__icon--active" : ""
+              }`}
           />
 
           <div
-            className={`nav__searchbar-container ${
-              isSerachBarOpen ? "nav__searchbar-container--active" : ""
-            }`}
+            className={`nav__searchbar-container ${isSearchBarOpen ? "nav__searchbar-container--active" : ""
+              }`}
           >
             <input
               type="text"
               name="searchBar"
               className="nav__searchbar"
               placeholder="Search here..."
+              value={searchKey}
+              onChange={(e) => searchHandler(e.target.value)}
             />
           </div>
         </div>
