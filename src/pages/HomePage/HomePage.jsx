@@ -6,7 +6,6 @@ import Quotes from "../../components/Quotes/Quotes";
 
 
 const HomePage = ({contentList}) => {
-  console.log(contentList);
 
   return (
     <>

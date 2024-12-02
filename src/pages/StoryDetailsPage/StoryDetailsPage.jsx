@@ -70,7 +70,7 @@ const StoryDetailsPage = () => {
   return (
     <main>
       <div className="content">
-        <article key={story.id} className="content__article">
+        <article key={story.id} className="content__article--modified">
           <Link to={`/category/${story.category}`} className="content__category">
             {story.category}
           </Link>
@@ -104,7 +104,7 @@ const StoryDetailsPage = () => {
                       : story.media
                 }
                 alt="article image"
-                className="content__img"
+                className="content__img--modified"
               />
             )}
             <div className="content-interactions">
@@ -140,7 +140,7 @@ const StoryDetailsPage = () => {
       </div>
 
       <section className="comments">
-        <h2 className="comments__heading">Join the Conversation</h2>
+        <h2 className="comments__heading">Show Your Love</h2>
         <form className="comments__form">
           <div className="comments__avatar">
             <img
@@ -177,59 +177,51 @@ const StoryDetailsPage = () => {
           </div>
         </form>
 
-        <div className="storyed-comments">
-          <div className="storyed-comment">
-            <div className="storyed-comment__avatar">
-              <div className="storyed-comment__img"></div>
+        <div className="posted-comments">
+          <div className="posted-comment">
+            <div className="posted-comment__avatar">
+              <div className="posted-comment__img"></div>
             </div>
-            <div className="storyed-comment__item">
-              <div className="storyed-comment__header">
-                <p className="storyed-comment__username">Victor Pinto</p>
-                <p className="storyed-comment__timestamp">2/17/2021</p>
+            <div className="posted-comment__item">
+              <div className="posted-comment__header">
+                <p className="posted-comment__username">Bubbles</p>
+                <p className="posted-comment__timestamp">2/17/2021</p>
               </div>
-              <div className="storyed-comment__body">
+              <div className="posted-comment__body">
                 <p>
-                  This is art. This is inexplicable magic expressed in the
-                  purest way, everything that makes up this majestic work
-                  deserves reverence. Let us appreciate this for what it is and
-                  what it contains.
+                  What a fantastic update! It's refreshing to hear good news; it gives so much hope for the future!
                 </p>
               </div>
             </div>
           </div>
-          <div className="storyed-comment">
-            <div className="storyed-comment__avatar">
-              <div className="storyed-comment__img"></div>
+          <div className="posted-comment">
+            <div className="posted-comment__avatar">
+              <div className="posted-comment__img"></div>
             </div>
-            <div className="storyed-comment__item">
-              <div className="storyed-comment__header">
-                <p className="storyed-comment__username">Christina Cabrera</p>
-                <p className="storyed-comment__timestamp">1/9/2021</p>
+            <div className="posted-comment__item">
+              <div className="posted-comment__header">
+                <p className="posted-comment__username">Buttercup</p>
+                <p className="posted-comment__timestamp">1/9/2021</p>
               </div>
-              <div className="storyed-comment__body">
+              <div className="posted-comment__body">
                 <p>
-                  I feel blessed to have seen them in person. What a show! They
-                  were just perfection. If there was one day of my life I could
-                  relive, this would be it. What an incredible day.
+                  This is such wonderful news! It's amazing to see positive changes like this happening—truly inspiring!
                 </p>
               </div>
             </div>
           </div>
-          <div className="storyed-comment">
-            <div className="storyed-comment__avatar">
-              <div className="storyed-comment__img"></div>
+          <div className="posted-comment">
+            <div className="posted-comment__avatar">
+              <div className="posted-comment__img"></div>
             </div>
-            <div className="storyed-comment__item">
-              <div className="storyed-comment__header">
-                <p className="storyed-comment__username">Isaac Tadesse</p>
-                <p className="storyed-comment__timestamp">12/20/2020</p>
+            <div className="posted-comment__item">
+              <div className="posted-comment__header">
+                <p className="posted-comment__username">Blossom</p>
+                <p className="posted-comment__timestamp">12/20/2020</p>
               </div>
-              <div className="storyed-comment__body">
+              <div className="posted-comment__body">
                 <p>
-                  I can't stop listening. Every time I hear one of their songs -
-                  the vocals - it gives me goosebumps. Shivers straight down my
-                  spine. What a beautiful expression of creativity. Can't get
-                  enough.
+                  "This just made my day! So glad to see something uplifting and encouraging. Let's celebrate this moment!
                 </p>
               </div>
             </div>

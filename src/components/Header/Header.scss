@@ -44,7 +44,7 @@
   &__searchbar-container {
     position: absolute;
     display: flex;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.25), 0 0.5rem 1.25rem rgba(0, 0, 0, 0.15);
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     width: 100%;
@@ -86,7 +86,7 @@
     position: absolute;
     right: 0;
     list-style-type: none;
-    padding: 16px;
+    padding: 1rem;
     font-size: 1rem;
     visibility: hidden;
     opacity: 0;
@@ -104,10 +104,10 @@
       opacity: 1;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.25), 0 0.5rem 1.25rem rgba(0, 0, 0, 0.15);
       background-color: #f3f3f3;
-      top: 89px;
-      gap: 16px;
+      top: 5.5625rem;
+      gap: 1rem;
       height: 100vh;
       width: 100vw;
       @include desktop {
@@ -161,5 +161,25 @@
     @include tablet {
       right: 6.25rem;
     }
+    @include desktop{
+      display: block;
+      left: 63rem;
+      bottom: 1.9375rem;
+    }
+  }
+  .categories-list{
+    display: none;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    &__item{
+      position: relative;
+      
+    }
+    &__link{
+      padding: 1.25rem 1.5625rem;
+      text-decoration: none;
+    }
+
   }
 }

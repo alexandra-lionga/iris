@@ -5,12 +5,13 @@ import flowerIcon from "/src/assets/images/icons/flower-icon.png";
 import closeIcon from "/src/assets/images/icons/Close.png";
 import searchIcon from "/src/assets/images/icons/search.svg";
 import plusCircleIcon from "/src/assets/images/icons/plus-circle.png";
+import categories from "../../data/categories";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 import React from "react";
 
-const Header = () => {
+const Header = ({ contentList }) => {
   const [isNavOpen, setNavOpen] = useState(false);
   const [isSerachBarOpen, setIsSearchBarOpen] = useState(false);
 
@@ -20,6 +21,9 @@ const Header = () => {
   const searchBarHandler = () => {
     setIsSearchBarOpen((previous) => !previous);
   };
+
+
+  
 
   return (
     <header>
@@ -49,29 +53,17 @@ const Header = () => {
             </li>
 
             {/* Categories Dropdown */}
-            <li className="nav__list-item">Categories</li>
-
-            <li className="nav__list-item">
-              <NavLink
-                to="/impact-hub"
-                className="nav__link"
-                onClick={displayNav}
-              >
-                {" "}
-                ImpactHub{" "}
-              </NavLink>
-            </li>
-
-            <li className="nav__list-item">
-              <NavLink
-                to="/about-us"
-                className="nav__link"
-                onClick={displayNav}
-              >
-                {" "}
-                About Us{" "}
-              </NavLink>
-            </li>
+            <a className="nav__list-item">Categories ▼</a>
+            <ul className="categories-list">
+              {categories.map((category, Index) => {
+                return (
+                  <li key={Index} className="categories-list__item"><Link className="categories-list__link" to={`/category/${category}`} value={category}>
+                    {category}
+                  </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </ul>
           <Link to="/share-your-story">
             <img src={plusCircleIcon} className="nav__icon-submit" />

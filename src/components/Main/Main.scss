@@ -22,15 +22,15 @@
     display: flex;
     flex-direction: column;
     width: 25%;
-    margin-top: 100px;
-    border-radius: 5px;
+    margin-top: 6.25rem;
+    border-radius: 0.3125rem;
   }
 }
 .newsletter {
   background-color: rgb(255, 102, 0);
-  border-radius: 5px;
-  padding: 16px 24px;
-  font-size: 24px;
+  border-radius: 0.3125rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
 
   color: $white;
   &__text {
