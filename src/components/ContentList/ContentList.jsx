@@ -3,17 +3,36 @@ import { Link } from "react-router-dom";
 import trashIcon from "../../assets/images/icons/trash-bin.png";
 import heartFilled from "../../assets/images/icons/heart-filled.png";
 import heart from "../../assets/images/icons/heart.png";
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
-const ContentList = ({ contentList }) => {
+const ContentList = () => {
+
+  const [contentList, setContentList] = useState(null);
   const [isLikedAdded, setIsLikeAdded] = useState(true);
+
+  const getContentList = async () => {
+    try {
+      const { data } = await axios.get(`${API_BASE_URL}/api/content`);
+      setContentList(data);
+    } catch (error) {
+      alert("Error retrieving content list. Error: " + error);
+    }
+  };
+
+  useEffect(() => {
+    getContentList();
+  }, []);
+
 
   function likesHandler() {
     setIsLikeAdded((previous) => !previous);
   }
+
   return (
     <div className="content">
+      <h2 className="content__heading"> News Feed</h2>
       {contentList?.map((post) => {
         let source_url = post.source.startsWith("/r/")
           ? `https://www.reddit.com/${post.source}`
@@ -63,16 +82,6 @@ const ContentList = ({ contentList }) => {
                 />
               )}
               <div className="content-interactions">
-                <img
-                  src={trashIcon}
-                  alt="trash icon"
-                  className={
-                    post.source_name == "Alexandra Lionga"
-                      ? "content-deleteIcon"
-                      : "content-deleteIcon--hidden"
-                  }
-                />
-
                 <img
                   src={`${isLikedAdded ? heartFilled : heart}`}
                   onClick={likesHandler}

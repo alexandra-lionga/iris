@@ -3,6 +3,8 @@ import { useDropzone } from "react-dropzone";
 import uploadIcon from "/src/assets/images/icons/Upload.png";
 import { useCallback, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const ShareYourStoryPage = ({ contentList }) => {
@@ -16,6 +18,12 @@ const ShareYourStoryPage = ({ contentList }) => {
     source_name: "",
     title: "",
   });
+
+  const navigate=useNavigate();
+
+  function goBack(){
+    navigate(-1);
+  }
 
   //Extracting unique list of categories
   const uniqueCategories = [
@@ -85,24 +93,13 @@ const ShareYourStoryPage = ({ contentList }) => {
     const formData = new FormData();
 
     Object.keys(data1).forEach((key) => { return formData.append(`${key}`, data1[key]); })
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value); // Check the contents of FormData
-    }
-
     try {
       const { data } = await axios.post(`${API_BASE_URL}/api/content/story`,
         formData);
-        
-      for (let [key, value] of formData.entries()) {
-        console.log(key, value); // Check the contents of FormData
-      }
-      console.log(data);
+        alert("Story sucessfully submitted. Returning to Home.");
+      goBack();
     } catch (error) { "ERROR: "+alert(error.response || error.message) }
   };
-
-  if (storyObject) {
-    console.log(storyObject);
-  }
 
   return (
     <section className="upload">

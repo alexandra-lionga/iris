@@ -8,21 +8,11 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ShareYourStoryPage from "./pages/ShareYourStoryPage/ShareYourStoryPage";
 import Header from "./components/Header/Header";
 import StoryDetailsPage from "./pages/StoryDetailsPage/StoryDetailsPage";
+
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 function App() {
-  const [mode, setMode] = useState(localStorage.getItem("mode") || "light");
   const [contentList, setContentList] = useState(null);
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-mode", mode);
-    localStorage.setItem("mode", mode);
-  }, [mode]);
-
-  const handleModeToggle = () => {
-    const newMode = mode === "light" ? "dark" : "light";
-    setMode(newMode);
-  };
 
   const getContentList = async () => {
     try {
@@ -35,10 +25,9 @@ function App() {
 
   useEffect(() => {
     getContentList();
-    console.log(contentList);
   }, []);
-  
-  
+
+
   if (!contentList) {
     return <div className="loading"></div>;
   }
@@ -52,9 +41,9 @@ function App() {
             path="/"
             element={<WelcomePage/>}
           />
-          <Route path="/home" element={<HomePage contentList={contentList}/>} />
+          <Route path="/home" element={<HomePage contentList={contentList} />} />
           <Route path="/category/:categoryId" element={<CategoryPage contentList={contentList} />} />
-          <Route path="/share-your-story" element={<ShareYourStoryPage contentList={contentList} />} />
+          <Route path="/share-your-story" element={<ShareYourStoryPage contentList={contentList}  />} />
           <Route path="/story/:storyId" element={<StoryDetailsPage contentList={contentList} />} />
         </Routes>
       </BrowserRouter>

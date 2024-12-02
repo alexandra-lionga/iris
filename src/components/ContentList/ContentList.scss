@@ -3,20 +3,33 @@
 
 .content {
   margin: 1rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-top: 1px solid rgba(70, 70, 70, 0.315);
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+  &__heading {
+    align-self: center;
+    margin: 1rem;
+    @include tablet{
+      font-size: 32px;
+    }
+  }
   &__article {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 24px;
+    background-color: $white;
+    padding: 24px 16px;
+    border-radius: 5px;
+
     @include desktop {
       display: grid;
       grid-template-columns: repeat(1, minmax(300px, 1fr));
       gap: 1rem;
       margin-bottom: 1.5rem;
       padding: 3rem 2rem 2rem 2rem;
-      background-color: $white;
     }
   }
   &__category {
@@ -77,6 +90,7 @@
     border: 2px solid black;
     padding: 0.125rem;
     border-radius: 1.5625rem;
+    cursor: pointer;
     @include desktop {
       width: 3rem;
       height: 3rem;
@@ -86,6 +100,7 @@
     }
   }
   &-likeIcon {
+    cursor: pointer;
     width: 2rem;
     height: 2rem;
     bottom: -37.5rem;

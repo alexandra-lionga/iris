@@ -2,22 +2,25 @@
 @use "../../styles/partials/mixins" as *;
 .quotes {
   width: 100vw;
-  padding: 24px;
-  margin: 8px 0;
+  margin: 0.5rem 0;
   &__slider {
+    margin: 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     cursor: pointer;
     height: 7.8rem;
+      border-top: 1px solid rgba(70, 70, 70, 0.315);
     align-items: center;
     &-quote {
+      margin-top: 1rem;;
       font-size: 1.375rem;
     }
     &-author {
-        margin-top: 4px;;
-        font-size: 11px;
-      }
+      margin-top: 0.25rem;
+      font-size: 11px;
+    }
   }
 }
 .quotes__slider-item--active {
