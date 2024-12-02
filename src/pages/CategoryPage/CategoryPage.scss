@@ -14,16 +14,4 @@
     border-radius: 5px;
     
   }
-
-  &__heading {
-    @include desktop {
-      color: rgb(255, 102, 0);;
-      font-size:48px;
-      align-self:c ;
-      line-height: 1.15;
-      padding: 0 96px;
-      width: 100%;
-      text-align: center;
-    }
-  }
 }

@@ -7,10 +7,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
-const ContentList = () => {
+const ContentList = ({ feedName }) => {
 
   const [contentList, setContentList] = useState(null);
   const [isLikedAdded, setIsLikeAdded] = useState(true);
+  
 
   const getContentList = async () => {
     try {
@@ -32,7 +33,7 @@ const ContentList = () => {
 
   return (
     <div className="content">
-      <h2 className="content__heading"> News Feed</h2>
+      <h2 className="content__heading"> {feedName?feedName:"News Feed"}</h2>
       {contentList?.map((post) => {
         let source_url = post.source.startsWith("/r/")
           ? `https://www.reddit.com/${post.source}`

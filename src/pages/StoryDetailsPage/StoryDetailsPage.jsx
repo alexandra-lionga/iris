@@ -1,5 +1,5 @@
 import "./StoryDetailsPage.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import trashIcon from "../../assets/images/icons/trash-bin.png";
 import heartFilled from "../../assets/images/icons/heart-filled.png";
@@ -12,6 +12,8 @@ const StoryDetailsPage = () => {
   const { storyId } = useParams();
   const [story, setStory] = useState(null);
   const [isLikedAdded, setIsLikeAdded] = useState(true);
+
+  const navigate = useNavigate();
 
   const getStory = async () => {
     try {
@@ -33,7 +35,8 @@ const StoryDetailsPage = () => {
       const response = await axios.delete(
         `${API_BASE_URL}/api/content/story/${id}`
       );
-      alert("Story sucessfully deleded. Refreshing")
+      alert("Story sucessfully deleded. Returning home")
+      navigate(-1);
     } catch (error) {
       alert("Error deleting story. Error: " + error);
     }
@@ -44,6 +47,7 @@ const StoryDetailsPage = () => {
     if (window.confirm("Are you sure you want to delete this story?")) {
       deleteStory(id);
     }
+
   }
 
   function likesHandler() {
@@ -60,7 +64,6 @@ const StoryDetailsPage = () => {
         : story.source;
 
   }
-
 
   if (!story) return <div className="loading"></div>;
 

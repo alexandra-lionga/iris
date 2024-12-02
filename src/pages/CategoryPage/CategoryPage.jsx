@@ -20,12 +20,7 @@ const CategoryPage = ({ contentList }) => {
 
   return (
     <>
-  
-      <div className="category">
-        <h2 className="category__heading">{categoryId}</h2>
-      </div>
-
-      <Main contentList={categoryContent} />
+      <Main contentList={categoryContent} feedName={`${categoryId}`} />
     </>
   );
 };
