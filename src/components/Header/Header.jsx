@@ -10,8 +10,6 @@ import categories from "../../data/categories";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
-import React from "react";
-
 const Header = ({ clearSearch, setSearchKey, searchKey, contentList }) => {
   const [isNavOpen, setNavOpen] = useState(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);

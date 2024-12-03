@@ -38,7 +38,10 @@ const ImpactHubPage = () => {
                 </p>
                 <div>
                   <p className="impact__card-info">
-                                      <a href="https://www.eventbrite.ca/e/seeds-of-hope-arefs-2024-gala-tickets-1071538152459?aff=ebdssbcategorybrowse">Click here </a>to learn more.
+                    <a href="https://www.eventbrite.ca/e/seeds-of-hope-arefs-2024-gala-tickets-1071538152459?aff=ebdssbcategorybrowse">
+                      Click here{" "}
+                    </a>
+                    to learn more.
                   </p>
                 </div>
               </div>
@@ -120,7 +123,10 @@ const ImpactHubPage = () => {
                   across Toronto.
                 </p>
                 <p className="impact__card-info">
-                                  <a href="https://www.eventbrite.ca/e/toronto-firefighters-toy-drive-at-cf-shops-at-don-mills-tickets-1095299844319?aff=ebdssbcategorybrowse">Click here </a>to learn more.
+                  <a href="https://www.eventbrite.ca/e/toronto-firefighters-toy-drive-at-cf-shops-at-don-mills-tickets-1095299844319?aff=ebdssbcategorybrowse">
+                    Click here{" "}
+                  </a>
+                  to learn more.
                 </p>
               </div>
             </div>

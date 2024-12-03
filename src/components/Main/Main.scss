@@ -9,16 +9,15 @@
     justify-content: center;
     width: 100%;
     gap: 1.5rem;
-      max-width: 80rem;
+    max-width: 80rem;
   }
 
   &-container {
     @include desktop {
+      position: relative;
       display: flex;
       width: 75%;
       border-radius: 5px;
-      border-right: 1px solid rgba(70, 70, 70, 0.315);
-    
     }
   }
 }

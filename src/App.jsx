@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ShareYourStoryPage from "./pages/ShareYourStoryPage/ShareYourStoryPage";
-
 import StoryDetailsPage from "./pages/StoryDetailsPage/StoryDetailsPage";
 import ImpactHubPage from "./pages/ImpactHubPage/ImpactHubPage";
 

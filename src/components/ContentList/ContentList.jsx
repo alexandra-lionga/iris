@@ -18,7 +18,7 @@ const ContentList = ({ feedName, searchKey }) => {
       const { data } = await axios.get(`${API_BASE_URL}/api/content/?s=${searchKey}`);
       setFilteredContentList(data);
     } catch (error) {
-      alert("Error retrieving content list. Error: " + error);
+      alert("Error retrieving content list. Error:  " + error);
     }
   };
 
@@ -34,7 +34,7 @@ const ContentList = ({ feedName, searchKey }) => {
   return (
     <>
       <div className="content">
-        <h2 className="content__heading"> {feedName ? feedName : "News Feed"}</h2>
+        <h2 className="content__heading"> {feedName ? feedName : searchKey.length>0 ? `Search results for: ${searchKey}`:"News Feed"}</h2>
         {filteredContentList?.length == 0 ? (<p className="result-message">No results found.</p>) :
         (filteredContentList?.map((post) => {
           let source_url = post.source.startsWith("/r/")

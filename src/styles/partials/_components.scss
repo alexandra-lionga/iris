@@ -14,7 +14,18 @@
     }
     @include desktop {
       font-size: 3rem;
-      max-width: 1280px;
+      max-width: 80rem;
+    }
+      &::after {
+      content: "";
+      @include desktop {
+        position: absolute;
+        background-color: rgba(70, 70, 70, 0.315);
+        width: 1px;
+        height: 100%;
+        top:-8px;
+        right: 0;
+      }
     }
   }
   &__article {
