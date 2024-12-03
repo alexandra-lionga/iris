@@ -3,6 +3,7 @@ import logo from "/src/assets/images/logo/iris-full-logo.png";
 import burgerMenu from "/src/assets/images/icons/Burger Menu 1.svg";
 import flowerIcon from "/src/assets/images/icons/flower-icon.png";
 import closeIcon from "/src/assets/images/icons/Close.png";
+import eraser from "/src/assets/images/icons/eraser.svg";
 import searchIcon from "/src/assets/images/icons/search.svg";
 import plusCircleIcon from "/src/assets/images/icons/plus-circle.png";
 import categories from "../../data/categories";
@@ -15,7 +16,6 @@ const Header = ({ clearSearch, setSearchKey, searchKey }) => {
   const [isNavOpen, setNavOpen] = useState(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
 
-
   const displayNav = () => {
     setNavOpen((previous) => !previous);
   };
@@ -24,34 +24,23 @@ const Header = ({ clearSearch, setSearchKey, searchKey }) => {
   };
 
   function searchHandler(key) {
-    if (isSearchBarOpen==true) {
+    if (isSearchBarOpen == true) {
       setSearchKey(key);
-    } else {
-      clearSearch();
     }
-
-
   }
-
 
   return (
     <header>
       <nav className="nav">
-        <Link to="/home">
-          <img src={logo} alt="website logo" className="nav__logo" />
-          <img
-            src={flowerIcon}
-            alt="website logo"
-            className="nav__logo--mobile"
-          />
-        </Link>
-
-        <div className="nav__content">
-          <img
-            src={burgerMenu}
-            onClick={displayNav}
-            className="nav__icon-open"
-          />
+        <div className="nav--left">
+          <Link to="/home">
+            <img src={logo} alt="website logo" className="nav__logo" />
+            <img
+              src={flowerIcon}
+              alt="website logo"
+              className="nav__logo--mobile"
+            />
+          </Link>
 
           <ul className={`nav__list ${isNavOpen ? "nav__list--active" : ""}`}>
             <li className="nav__list-item">
@@ -66,41 +55,95 @@ const Header = ({ clearSearch, setSearchKey, searchKey }) => {
             <ul className="categories-list">
               {categories.map((category, Index) => {
                 return (
-                  <li key={Index} className="categories-list__item"><Link className="categories-list__link" to={`/category/${category}`} value={category}>
-                    {category}
-                  </Link>
+                  <li key={Index} className="categories-list__item">
+                    <Link
+                      className="categories-list__link"
+                      to={`/category/${category}`}
+                      value={category}
+                    >
+                      {category}
+                    </Link>
                   </li>
                 );
               })}
             </ul>
+            <li className="nav__list-item">
+              <NavLink
+                to="/impact-hub"
+                className="nav__link"
+                onClick={displayNav}
+              >
+                {" "}
+                ImpactHub{" "}
+              </NavLink>
+            </li>
+
+            <li className="nav__list-item">
+              <NavLink
+                to="/about-us"
+                className="nav__link"
+                onClick={displayNav}
+              >
+                {" "}
+                About Us{" "}
+              </NavLink>
+            </li>
+
           </ul>
-          <Link to="/share-your-story">
-            <img src={plusCircleIcon} className="nav__icon-submit" />
-          </Link>
+        </div>
+
+       
+
+        <div className="nav__content">
+          {isSearchBarOpen ? (
+            ""
+          ) : (
+            <Link to="/share-your-story">
+              <img src={plusCircleIcon} className="nav__icon-submit" />
+            </Link>
+          )}
+          {isSearchBarOpen ? (
+            <img
+              src={eraser}
+              onClick={clearSearch}
+              className="nav__icon-submit"
+            />
+          ) : (
+            <img
+              src={burgerMenu}
+              onClick={displayNav}
+              className="nav__icon-open"
+            />
+          )}
 
           <img
             src={`${isSearchBarOpen ? closeIcon : searchIcon}`}
             onClick={searchBarHandler}
-            className={`nav__searchbar__icon  ${isSearchBarOpen ? "nav__searchbar__icon--active" : ""
-              }`}
+            className={`nav__searchbar__icon  ${
+              isSearchBarOpen ? "nav__searchbar__icon--active" : ""
+            }`}
           />
-
           <div
-            className={`nav__searchbar-container ${isSearchBarOpen ? "nav__searchbar-container--active" : ""
-              }`}
+            className={`nav__searchbar-container ${
+              isSearchBarOpen ? "nav__searchbar-container--active" : ""
+            }`}
           >
             <input
               type="text"
               name="searchBar"
               className="nav__searchbar"
               placeholder="Search here..."
-              value={searchKey}
+              value={isSearchBarOpen ? searchKey : "  ".trim()}
               onChange={(e) => searchHandler(e.target.value)}
             />
           </div>
-        </div>
 
-        <img src={closeIcon} onClick={displayNav} className="nav__icon-close" />
+          <img
+            src={closeIcon}
+            onClick={displayNav}
+            className="nav__icon-close"
+          />
+        </div>
       </nav>
     </header>
   );

@@ -1,2 +1,8 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+.result-message{
+  text-align: center;
+  margin: 1rem;
+  font-weight: 600;
+}

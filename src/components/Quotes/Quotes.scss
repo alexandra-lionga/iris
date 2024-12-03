@@ -3,6 +3,8 @@
 .quotes {
   width: 100vw;
   margin: 0.5rem 0;
+    border-top: 1px solid rgba(70, 70, 70, 0.315);
+    border-bottom: 1px solid rgba(70, 70, 70, 0.315);
   &__slider {
     margin: 1rem;
     display: flex;
@@ -11,8 +13,8 @@
     text-align: center;
     cursor: pointer;
     height: 7.8rem;
-    border-top: 1px solid rgba(70, 70, 70, 0.315);
-    border-bottom: 1px solid rgba(70, 70, 70, 0.315);
+    padding-bottom: 8px;
+  
     align-items: center;
     @include desktop {
       margin: 2rem;

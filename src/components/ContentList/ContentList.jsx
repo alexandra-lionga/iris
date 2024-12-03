@@ -9,14 +9,13 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 const ContentList = ({ feedName, searchKey }) => {
 
   const [contentList, setContentList] = useState(null);
+  const [filteredContentList, setFilteredContentList] = useState(null);
   const [isLikedAdded, setIsLikeAdded] = useState(true);
-
-  console.log(searchKey);
 
   const getContentList = async () => {
     try {
       const { data } = await axios.get(`${API_BASE_URL}/api/content/?s=${searchKey}`);
-      setContentList(data);
+      setFilteredContentList(data);
     } catch (error) {
       alert("Error retrieving content list. Error: " + error);
     }
@@ -35,7 +34,8 @@ const ContentList = ({ feedName, searchKey }) => {
     <>
       <div className="content">
         <h2 className="content__heading"> {feedName ? feedName : "News Feed"}</h2>
-        {contentList?.map((post) => {
+        {filteredContentList?.length == 0 ? (<p className="result-message">No results found.</p>) :
+        (filteredContentList?.map((post) => {
           let source_url = post.source.startsWith("/r/")
             ? `https://www.reddit.com/${post.source}`
             : post.source == ""
@@ -104,7 +104,7 @@ const ContentList = ({ feedName, searchKey }) => {
               )}
             </article>
           );
-        })}
+        }))}
       </div>
     </>
     
