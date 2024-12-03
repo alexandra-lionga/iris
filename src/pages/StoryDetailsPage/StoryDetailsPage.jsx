@@ -6,6 +6,7 @@ import heartFilled from "../../assets/images/icons/heart-filled.png";
 import heart from "../../assets/images/icons/heart.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const StoryDetailsPage = () => {
@@ -68,6 +69,8 @@ const StoryDetailsPage = () => {
   if (!story) return <div className="loading"></div>;
 
   return (
+    <>
+    <Header/>
     <main>
       <div className="content">
         <article key={story.id} className="content__article--modified">
@@ -229,6 +232,7 @@ const StoryDetailsPage = () => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 export default StoryDetailsPage;

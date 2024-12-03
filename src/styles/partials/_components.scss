@@ -14,6 +14,7 @@
     }
     @include desktop {
       font-size: 3rem;
+      max-width: 1280px;
     }
   }
   &__article {

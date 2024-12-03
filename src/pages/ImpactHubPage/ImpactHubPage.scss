@@ -21,11 +21,15 @@
     text-align: center;
     position: relative;
   }
+  &__heading {
+    text-align: center;
+  }
 
   &__subheading {
     max-width: 50rem;
     margin: 1rem 0;
     font-size: 0.875rem;
+    color: grey;
   }
   &__cards {
     @include desktop {
@@ -65,10 +69,10 @@
     }
     &-heading {
       margin: 0.25rem 0;
-      border-bottom: .5px solid rgb(199, 187, 187);
-     
-      @include desktop{
-        padding-bottom: 8px ;
+      border-bottom: 0.5px solid rgb(199, 187, 187);
+
+      @include desktop {
+        padding-bottom: 0.5rem;
       }
     }
     &-description {

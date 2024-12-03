@@ -1,9 +1,8 @@
-
 import "./CategoryPage.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Main from "../../components/Main/Main";
-import ContentList from "../../components/ContentList/ContentList";
+import Header from "../../components/Header/Header";
 
 const CategoryPage = ({ contentList }) => {
   const { categoryId } = useParams();
@@ -20,6 +19,7 @@ const CategoryPage = ({ contentList }) => {
 
   return (
     <>
+    <Header/>
       <Main contentList={categoryContent} feedName={`${categoryId}`} />
     </>
   );

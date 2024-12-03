@@ -3,9 +3,13 @@
 
 .main {
   @include desktop {
+    margin: 0 auto;
     display: flex;
-    padding: 0 6rem;
-    gap: 24px;
+    padding: 0 8rem;
+    justify-content: center;
+    width: 100%;
+    gap: 1.5rem;
+      max-width: 80rem;
   }
 
   &-container {
@@ -13,7 +17,8 @@
       display: flex;
       width: 75%;
       border-radius: 5px;
-           border-right: 1px solid rgba(70, 70, 70, 0.315);
+      border-right: 1px solid rgba(70, 70, 70, 0.315);
+    
     }
   }
 }

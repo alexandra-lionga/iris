@@ -6,9 +6,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+
 const ContentList = ({ feedName, searchKey }) => {
 
-  const [contentList, setContentList] = useState(null);
   const [filteredContentList, setFilteredContentList] = useState(null);
   const [isLikedAdded, setIsLikeAdded] = useState(true);
 
