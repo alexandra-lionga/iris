@@ -6,7 +6,7 @@ const Main = ({ feedName, searchKey }) => {
   return (
     <main className="main">
       <div className="main-container">
-        <ContentList searchKey={searchKey}feedName={feedName}/>
+        <ContentList searchKey={searchKey} feedName={feedName}/>
       </div>
       <div className="side-container">
         <div className="newsletter">

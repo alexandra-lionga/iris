@@ -11,8 +11,10 @@
        position: relative;
       width: 100vw;
     @include desktop {
-      position: relative;
+      position: absolute;
+      top:0;
       height: 43.75rem;
+   
     }
     &-overlay {
       position: absolute;

@@ -1,0 +1,84 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.impact {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  padding: 0 0.5rem;
+  overflow: hidden;
+  max-width: 100%;
+  @include tablet {
+    margin: 2rem 2.5rem;
+  }
+
+  @include desktop {
+    color: #000000;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    position: relative;
+  }
+
+  &__subheading {
+    max-width: 50rem;
+    margin: 1rem 0;
+    font-size: 0.875rem;
+  }
+  &__cards {
+    @include desktop {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  &__card {
+    margin: 1rem 0;
+    border-radius: 5px;
+    background-color: $white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @include tablet {
+      margin: 1.5rem 2.5rem;
+    }
+    &-img {
+      width: 100%;
+      border-radius: 0.3125rem;
+    }
+    &-content {
+      padding: 0.5rem;
+      text-align: left;
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        justify-content: space-between;
+      }
+    }
+    &-date {
+      text-align: left;
+      font-size: 0.75rem;
+      color: gray;
+    }
+    &-heading {
+      margin: 0.25rem 0;
+      border-bottom: .5px solid rgb(199, 187, 187);
+     
+      @include desktop{
+        padding-bottom: 8px ;
+      }
+    }
+    &-description {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+    }
+    &-info {
+      margin: 0.5rem 0;
+      font-size: 0.75rem;
+      margin-top: 8px;
+    }
+  }
+}

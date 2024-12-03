@@ -5,8 +5,15 @@
   color: $white;
 }
 
-.nav__list-item:hover, .categories__link:hover{
+.nav__list-item:hover,
+.categories__link:hover {
   font-weight: 500;
+}
+
+.impact__card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 @keyframes swing {
@@ -25,11 +32,19 @@
 
 //For loader
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
