@@ -5,6 +5,8 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -21,10 +23,6 @@ const ShareYourStoryPage = ({ contentList }) => {
   });
 
   const navigate = useNavigate();
-
-  function goBack() {
-    navigate(-1);
-  }
 
   //Extracting unique list of categories
   const uniqueCategories = [
@@ -101,8 +99,11 @@ const ShareYourStoryPage = ({ contentList }) => {
         `${API_BASE_URL}/api/content/story`,
         formData
       );
-      alert("Story sucessfully submitted. Returning to Home.");
-      goBack();
+      toast.success("Story sucessfully submitted. Returning home..", {
+        position: "top-center",
+        hideProgressBar: true,
+      });
+      setTimeout(() => navigate("/home"), 2000);
     } catch (error) {
       "ERROR: " + alert(error.response || error.message);
     }
@@ -251,6 +252,16 @@ const ShareYourStoryPage = ({ contentList }) => {
           </form>
         </div>
       </section>
+      <ToastContainer transition={Slide}
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={true} 
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover />
     </>
   );
 };

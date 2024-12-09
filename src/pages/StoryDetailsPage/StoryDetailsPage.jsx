@@ -1,18 +1,19 @@
 import "./StoryDetailsPage.scss";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import trashIcon from "../../assets/images/icons/trash-bin.png";
-import heartFilled from "../../assets/images/icons/heart-filled.png";
-import heart from "../../assets/images/icons/heart.png";
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header/Header"
+import edit from "../../assets/images/icons/pencil.svg"
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const StoryDetailsPage = () => {
   const { storyId } = useParams();
   const [story, setStory] = useState(null);
   const [isLikedAdded, setIsLikeAdded] = useState(true);
+  const [editingObj, setEditingObj] = useState(null);
 
   const navigate = useNavigate();
 
@@ -36,8 +37,11 @@ const StoryDetailsPage = () => {
       const response = await axios.delete(
         `${API_BASE_URL}/api/content/story/${id}`
       );
-      alert("Story sucessfully deleded. Returning home")
-      navigate(-1);
+      toast.success("Story sucessfully deleted. Returning home.." ,{
+        position: "top-center",
+        hideProgressBar: true,
+      });
+      setTimeout(() => navigate("/home"), 2000);
     } catch (error) {
       alert("Error deleting story. Error: " + error);
     }
@@ -55,6 +59,9 @@ const StoryDetailsPage = () => {
     setIsLikeAdded((previous) => !previous);
   }
 
+  function handleEdit(id){
+   return <Link to={`story/${id}/edit`}/>  }
+
 
   let source_url = '';
   if (story) {
@@ -71,168 +78,97 @@ const StoryDetailsPage = () => {
   return (
     <>
     <Header/>
-    <main>
-      <div className="content">
-        <article key={story.id} className="content__article--modified">
-          <Link to={`/category/${story.category}`} className="content__category">
-            {story.category}
-          </Link>
+      <main>
+        <div className="content">
+          <article key={story.id} className="content__article story__article">
+            <Link to={`/category/${story.category}`} className="content__category">
+              {story.category}
+            </Link>
 
-          <Link to={`/story/${story.id}`} className="content__headline">
-            <h2>{story.title}</h2>
-          </Link>
-          <p className="content__author">
-            By:{" "}
-            {source_url ? (
-              <a href={source_url} className="content__external-link">
-                {story.source_name}
-              </a>
-            ) : (
-              ""
-            )}
-          </p>
-          <div className="content-media">
-            {story.media.endsWith("fallback" || ".mp4") ? (
-              <video controls className="content__video">
-                <source src={story.media} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <img
-                src={
-                  story.media.startsWith("images")
-                    ? `${API_BASE_URL}/${story.media}`
-                    : story.media.startsWith("userFiles")
-                      ? `${API_BASE_URL}/${story.media}`
-                      : story.media
-                }
-                alt="article image"
-                className="content__img--modified"
-              />
-            )}
-            <div className="content-interactions">
-              <img
-                src={`${isLikedAdded ? heartFilled : heart}`}
-                onClick={likesHandler}
-                className="content-likeIcon"
-              />
-              <img
-                src={trashIcon}
-                alt="trash icon"
-                onClick={() => handleDelete(story.id)}
-                className={
-                  story.source_name == "Alexandra Lionga"
-                    ? "content-deleteIcon"
-                    : "content-deleteIcon--hidden"
-                }
-              />
-            </div>
-          </div>
-
-          {story.description === "" ? (
-            <p className="content__description">
-              Checkout the story behind this story:{" "}
-              <a href={source_url} className="content__description-link">
-                here.
-              </a>
+            <Link to={`/story/${story.id}`} className="content__headline">
+              <h2>{story.title}</h2>
+            </Link>
+            <p className="content__author">
+              By:{" "}
+              {source_url ? (
+                <a href={source_url} className="content__external-link">
+                  {story.source_name}
+                </a>
+              ) : (
+                ""
+              )}
             </p>
-          ) : (
-            <p className="content__description">{story.description}</p>
-          )}
-        </article>
-      </div>
+            <div className="content-media">
+              {story.media.endsWith("fallback" || ".mp4") ? (
+                <video controls className="content__video">
+                  <source src={story.media} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <img
+                  src={
+                    story.media.startsWith("images")
+                      ? `${API_BASE_URL}/${story.media}`
+                      : story.media.startsWith("userFiles")
+                        ? `${API_BASE_URL}/${story.media}`
+                        : story.media
+                  }
+                  alt="article image"
+                  className="story__img"
+                />
+              )}
+              <div className="content-interactions story-interactions">
+                <img
+                  src={trashIcon}
+                  alt="trash icon"
+                  onClick={() => handleDelete(story.id)}
+                  className={
+                    story.source_name == "Alexandra Lionga"
+                      ? "content-deleteIcon story-deleteIcon"
+                      : "content-deleteIcon--hidden"
+                  }
+                />
+                <Link to={`/story/${story.id}/edit`} state={{story}}>
+             
+                <img
+                  src={edit}
+                  alt="edit icon"
+                  className={
+                    story.source_name == "Alexandra Lionga"
+                      ? "content-deleteIcon story-deleteIcon"
+                      : "content-deleteIcon--hidden"
+                  }
+                />
+                </Link>
+              </div>
+            </div>
 
-      <section className="comments">
-        <h2 className="comments__heading">Show Your Love</h2>
-        <form className="comments__form">
-          <div className="comments__avatar">
-            <img
-              className="comments__avatar-img"
-              src={heart}
-            />
-          </div>
-          <div className="comments__entry">
-            <div className="comments__entry-header">
-              <label for="name">NAME</label>
-              <input
-                type="text"
-                id="name"
-                name="username"
-                placeholder="Enter your name"
-              />
-            </div>
-            <div className="comments__entry-bottom">
-              <div className="comments__entry-body">
-                <label for="comment">COMMENT</label>
-                <textarea
-                  type="text"
-                  id="comment"
-                  name="usercomment"
-                  placeholder="Add a new comment"
-                  rows="5"
-                  cols="33"
-                ></textarea>
-              </div>
-            </div>
-            <button type="submit" className="comments__btn">
-              COMMENT
-            </button>
-          </div>
-        </form>
-
-        <div className="posted-comments">
-          <div className="posted-comment">
-            <div className="posted-comment__avatar">
-              <div className="posted-comment__img"></div>
-            </div>
-            <div className="posted-comment__item">
-              <div className="posted-comment__header">
-                <p className="posted-comment__username">Bubbles</p>
-                <p className="posted-comment__timestamp">2/17/2021</p>
-              </div>
-              <div className="posted-comment__body">
-                <p>
-                  What a fantastic update! It's refreshing to hear good news; it gives so much hope for the future!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="posted-comment">
-            <div className="posted-comment__avatar">
-              <div className="posted-comment__img"></div>
-            </div>
-            <div className="posted-comment__item">
-              <div className="posted-comment__header">
-                <p className="posted-comment__username">Buttercup</p>
-                <p className="posted-comment__timestamp">1/9/2021</p>
-              </div>
-              <div className="posted-comment__body">
-                <p>
-                  This is such wonderful news! It's amazing to see positive changes like this happening—truly inspiring!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="posted-comment">
-            <div className="posted-comment__avatar">
-              <div className="posted-comment__img"></div>
-            </div>
-            <div className="posted-comment__item">
-              <div className="posted-comment__header">
-                <p className="posted-comment__username">Blossom</p>
-                <p className="posted-comment__timestamp">12/20/2020</p>
-              </div>
-              <div className="posted-comment__body">
-                <p>
-                  "This just made my day! So glad to see something uplifting and encouraging. Let's celebrate this moment!
-                </p>
-              </div>
-            </div>
-          </div>
+            {story.description === "" ? (
+              <p className="content__description">
+                Checkout the story behind this story:{" "}
+                <a href={source_url} className="content__description-link">
+                  here.
+                </a>
+              </p>
+            ) : (
+              <p className="content__description">{story.description}</p>
+            )}
+          </article>
         </div>
-      </section>
-    </main>
+
+      </main>
+      <ToastContainer transition={Slide}
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={true} // Hide the progress bar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover />
     </>
+   
   );
 };
 export default StoryDetailsPage;

@@ -11,7 +11,7 @@ const highlights = [
   },
   {
     id: 2,
-    title: "Sweet Inscription in a Second Hand book",
+    title: "Sweet Inscription in a Second Hand book I bought in London yesterday",
     category: "Personal",
     source_name: "Reddit",
     description: "",

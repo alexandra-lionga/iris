@@ -76,5 +76,5 @@ const categories = [
     "Family Bonding",
   
 ];
-  export default categories;
+  export {categories};
 

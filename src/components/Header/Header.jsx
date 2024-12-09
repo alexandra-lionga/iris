@@ -6,26 +6,52 @@ import closeIcon from "/src/assets/images/icons/Close.png";
 import eraser from "/src/assets/images/icons/eraser.svg";
 import searchIcon from "/src/assets/images/icons/search.svg";
 import plusCircleIcon from "/src/assets/images/icons/plus-circle.png";
-import categories from "../../data/categories";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
-const Header = ({ clearSearch, setSearchKey, searchKey, contentList }) => {
+const Header = ({ clearSearch, setSearchKey, searchKey }) => {
+  const categories = [
+    "Adorable Moments",
+    "Overcoming Challenges",
+    "Heartwarming Moments",
+    "Kindness",
+    "Animal Rescue",
+    "Creative Expressions",
+    "Sentimental Moments",
+    "Comment on Music",
+    "Fashion",
+    "Acts of Kindness",
+    "Family",
+    "Life Milestones",
+    "Wisdom",
+    "Historical Interest",
+    "Inspiration",
+    "Heroism",
+    "Generosity",
+    "Health",
+  ];
+
   const [isNavOpen, setNavOpen] = useState(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
+  const [isCategoriesOpen, setCategoriesOpen] = useState(false);
 
   const displayNav = () => {
     setNavOpen((previous) => !previous);
   };
+
   const searchBarHandler = () => {
     setIsSearchBarOpen((previous) => !previous);
   };
 
-  function searchHandler(key) {
-    if (isSearchBarOpen == true) {
+  const toggleCategories = () => {
+    setCategoriesOpen((prev) => !prev);
+  };
+
+  const searchHandler = (key) => {
+    if (isSearchBarOpen) {
       setSearchKey(key);
     }
-  }
+  };
 
   return (
     <header>
@@ -43,56 +69,53 @@ const Header = ({ clearSearch, setSearchKey, searchKey, contentList }) => {
           <ul className={`nav__list ${isNavOpen ? "nav__list--active" : ""}`}>
             <li className="nav__list-item">
               <NavLink to="/home" className="nav__link" onClick={displayNav}>
-                {" "}
                 Home
               </NavLink>
             </li>
 
-            {/* Categories Dropdown */}
-            <a className="nav__list-item">Categories ▼</a>
-            <ul className="categories-list">
-              {categories.map((category, Index) => {
-                return (
-                  <li key={Index} className="categories-list__item">
-                    <Link
-                      className="categories-list__link"
-                      to={`/category/${category}`}
-                      value={category}
-                    >
-                      {category}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <li className="nav__list-item" onClick={toggleCategories}>
+              Categories ▼
+              {isCategoriesOpen && (
+                <ul className="categories-list">
+                  {categories.map((category, index) => (
+                    <li key={index} className="categories-list__item">
+                      <Link
+                        className="categories-list__link"
+                        to={`/category/${category}`}
+                        onClick={() => setCategoriesOpen(false)}
+                      >
+                        {category}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
             <li className="nav__list-item">
               <NavLink
                 to="/impact-hub"
                 className="nav__link"
                 onClick={displayNav}
               >
-                {" "}
-                ImpactHub{" "}
+                ImpactHub
               </NavLink>
             </li>
 
-            <li className="nav__list-item">
+            {/* <li className="nav__list-item">
               <NavLink
                 to="/about-us"
                 className="nav__link"
                 onClick={displayNav}
               >
-                {" "}
-                About Us{" "}
+                About Us
               </NavLink>
-            </li>
-
+            </li> */}
           </ul>
         </div>
 
-       
-
         <div className="nav__content">
+          <p className="welcome-heading sparkling-text">Welcome, Alexandra!</p>
           {isSearchBarOpen ? (
             ""
           ) : (
@@ -117,21 +140,19 @@ const Header = ({ clearSearch, setSearchKey, searchKey, contentList }) => {
           <img
             src={`${isSearchBarOpen ? closeIcon : searchIcon}`}
             onClick={searchBarHandler}
-            className={`nav__searchbar__icon  ${
-              isSearchBarOpen ? "nav__searchbar__icon--active" : ""
-            }`}
+            className={`nav__searchbar__icon ${isSearchBarOpen ? "nav__searchbar__icon--active" : ""
+              }`}
           />
           <div
-            className={`nav__searchbar-container ${
-              isSearchBarOpen ? "nav__searchbar-container--active" : ""
-            }`}
+            className={`nav__searchbar-container ${isSearchBarOpen ? "nav__searchbar-container--active" : ""
+              }`}
           >
             <input
               type="text"
               name="searchBar"
               className="nav__searchbar"
               placeholder="Search here..."
-              value={isSearchBarOpen ? searchKey : "  ".trim()}
+              value={isSearchBarOpen ? searchKey : ""}
               onChange={(e) => searchHandler(e.target.value)}
             />
           </div>

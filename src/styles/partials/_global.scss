@@ -22,6 +22,7 @@ body{
 
 }
 
+
 .light-mode-icon{
   width:30px;
 }
@@ -35,4 +36,20 @@ body{
   height: 100px;
   -webkit-animation: spin 2s linear infinite; 
   animation: spin 2s linear infinite;
+}
+
+label {
+  font-size: 0.75rem;
+  color: rgb(0, 0, 0);
+  margin: 0.25rem 0;
+}
+input,
+textarea,
+select {
+  border-radius: 0.3125rem;
+  padding: 0.5rem;
+  border: 0.0625rem solid grey;
+  @include desktop {
+    margin-bottom: 8px;
+  }
 }

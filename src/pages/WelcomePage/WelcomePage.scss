@@ -13,18 +13,21 @@
   gap: 0.5rem;
   position: relative;
   overflow-x: clip;
+    background-size: 400% 400%;
   &__heading {
     margin: 0 auto;
     font-size: 2.75rem;
     @include desktop{
+      
       font-size: 4rem;;
     }
   }
   &__image {
+    display: none;
     position: absolute;
     width: 20rem;
     height:18.75rem;
-    top:-5%;
+    top:-px;
     animation: swing 2s infinite ease-in-out;
     transform-origin: top center;
     transform-box: fill-box;
@@ -37,5 +40,16 @@
     background-color: $light-orange;
     font-weight: 600;
     cursor: pointer;
+  }
+}
+@keyframes waveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

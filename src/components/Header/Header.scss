@@ -80,7 +80,9 @@
     border: none;
     flex: 1;
     font-size: 1.125rem;
-    height: 100%;
+    height: 95%;
+
+
     &__icon {
       width: 2rem;
       height: 2rem;
@@ -134,8 +136,10 @@
       color: $white;
       font-weight: 500;
       padding: 0.25rem 1rem;
+      cursor: pointer;
       @include desktop {
         color: black;
+        font-weight: 600;
       }
     }
   }
@@ -144,6 +148,7 @@
     color: black;
     @include desktop {
       color: $white;
+      transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
     }
   }
   &__icon-open {
@@ -176,16 +181,82 @@
     }
   }
   .categories-list {
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 40px;
+    background-color: $deep-orange;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     list-style: none;
-    justify-content: center;
-    align-items: center;
+    padding: 1rem;
+    margin: 0;
+    z-index: 1000;
+
     &__item {
-      position: relative;
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
+
     &__link {
-      padding: 1.25rem 1.5625rem;
       text-decoration: none;
+      color: #ffffff;
+      padding: 0.5rem;
+      display: block;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: $light-orange;
+      }
     }
   }
+}
+
+.welcome-heading {
+  display: none;
+  @include desktop {
+    display: block;
+    position: relative;
+    left: -25px;
+    top: -2px;
+    font-weight: bold;
+    color: white;
+  }
+}
+
+.nav__link:hover {
+  color: $deep-orange;
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sparkling-text {
+  color: transparent;
+  background-image: linear-gradient(
+    45deg,
+    #ffffff,
+    /* Soft orange */ #ff6e00,
+    /* Bright orange */ #ffffff,
+    /* Light orange */ #ff6e00
+  ); /* Gradient for sparkle effect */
+  background-size: 400% 400%; /* Ensure a smooth transition */
+  -webkit-background-clip: text; /* Clip the background to text */
+  background-clip: text;
+  animation: sparkle 5s linear infinite; /* Smooth, infinite sparkle */
+  text-align: center;
 }

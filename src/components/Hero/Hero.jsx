@@ -24,7 +24,7 @@ const Hero = () => {
       autoPlay &&
       setTimeout(() => {
         nextClickHandler();
-      }, 2500);
+      }, 3500);
   });
 
   return (

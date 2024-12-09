@@ -82,6 +82,10 @@
     object-fit: cover;
     border-radius: 0.5rem;
   }
+  &__video{
+    @extend .content__img;
+
+  }
   &__description {
     margin: 1rem 0;
     @include desktop {

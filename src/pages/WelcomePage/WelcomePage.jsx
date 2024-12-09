@@ -19,8 +19,7 @@ const WelcomePage = ({handleModeToggle}) => {
         <button className="welcome__button" onClick={clickHandler}>
           Get Started
         </button>
-        <p className="mode-text">Today's Mood:</p>
-        <img src={sunIcon} className="light-mode-icon"/>
+        
       </div>
     </main>
   );
